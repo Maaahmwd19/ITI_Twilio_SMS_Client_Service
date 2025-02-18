@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login Form</title>
 
-    <div>
-        <form action="/TwilioSMSClient/LoginServlet" method="post">
-            <label for="name"></label>
-            <input type="text" name="username">
-            <label for="password"></label>
-            <input type="password" name="password">
-            <input type="submit">
-        </form>
+    <link rel="stylesheet" href="../Styles/Styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-    </body>
+        <form action="/TwilioSMSClient/LoginServlet" method="post">
+            <h3>Login Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username"  name="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password"  name="password">
+
+        <button>Log In</button><br><br>
+        
+        <div class="resgister-link">
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+        </div>
+    </form>
+</body>
 </html>

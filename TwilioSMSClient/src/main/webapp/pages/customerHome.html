@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send SMS</title>
+    <link rel="stylesheet" href="../Styles/CustomerHome.css">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="send_sms.php" method="POST">
+        <h3>Send SMS</h3>
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from" placeholder="Your Twilio Number" required>
+        
+        <label for="to">To:</label>
+        <input type="text" id="to" name="to" placeholder="Recipient Number" required>
+        
+        <label for="body">Message:</label>
+        <input type="text" id="body" name="body" placeholder="Your message..." required>
+        
+        <button type="submit">Send SMS</button>
+    </form>
+</body>
 </html>

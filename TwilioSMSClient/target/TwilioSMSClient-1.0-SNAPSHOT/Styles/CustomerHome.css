@@ -1,6 +1,5 @@
-*,
-*:before,
-*:after {
+
+*, *:before, *:after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -58,28 +57,26 @@ form {
 form h3 {
     font-size: 32px;
     font-weight: 500;
-    line-height: 42px;
     text-align: center;
 }
 
 label {
     display: block;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 16px;
     font-weight: 500;
 }
 
 input {
-    display: block;
-    height: 50px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
+    height: 40px;
     margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
     color: #ffffff;
+    font-size: 14px;
+    border: none;
 }
 
 ::placeholder {
@@ -87,11 +84,11 @@ input {
 }
 
 button {
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
-    padding: 15px 0;
+    padding: 12px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;

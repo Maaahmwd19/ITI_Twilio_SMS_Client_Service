@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("email", user.getEmail());
 
                 if (user.getRole() == User.Role.ADMIN) {
-                    response.sendRedirect("AdminServlet");
+                    response.sendRedirect("customerHome.html");
                 } else if (user.getRole() == User.Role.CUSTOMER) {
-                    response.sendRedirect("CustomerServlet");
+                    response.sendRedirect("pages/customerHome.html");
                 } else {
                     response.sendRedirect("pages/login.html");
                 }
