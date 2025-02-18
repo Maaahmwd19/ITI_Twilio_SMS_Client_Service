@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://java.sun.com/xml/ns/javaee" location="" />
+    <resource url="http://www.w3.org/2001/XMLSchema-instance" location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2024.3/extResources/631eabe6_XMLSchema-instance.xml" />
+    <resource url="http://www.w3.org/2001/xml.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2024.3/extResources/9b192256_xml.xsd" />
+    <resource url="http://xmlns.jcp.org/xml/ns/javaee" location="" />
+    <resource url="http://xmlns.jcp.org/xml/ns/javaee/beans_2_0.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2024.3/extResources/647c5261_beans_2_0.xsd" />
+    <resource url="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" location="$PROJECT_DIR$" />
+    <resource url="https://jakarta.ee/xml/ns/jakartaee" location="" />
+    <resource url="https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd&quot;" location="" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
+</project>
