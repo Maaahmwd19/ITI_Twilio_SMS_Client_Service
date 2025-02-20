@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Verification Code</title>
+</head>
+<body>
+    <h2>Enter Verification Code</h2>
+    <form action="/TwilioSMSClient/verifyCode" method="post">
+        Verification Code: <input type="text" name="code" required><br><br>
+        <input type="submit" value="Verify">
+    </form>
+    <div id="error" style="color: red;">
+        ${errorMessage}
+    </div>
+</body>
+</html>

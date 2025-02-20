@@ -1,0 +1,152 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Shapes */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    width: 300%;
+    height: 300%;
+    background: #007bff;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: moveShape 10s ease-in-out infinite;
+}
+body::after {
+    background: #ff7f00;
+    animation: moveShape2 15s ease-in-out infinite;
+    opacity: 0.15;
+}
+
+/* Keyframes for Shapes Animation */
+@keyframes moveShape {
+    0% { top: -50%; left: -50%; }
+    50% { top: 100%; left: 50%; }
+    100% { top: -50%; left: -50%; }
+}
+
+@keyframes moveShape2 {
+    0% { top: 50%; left: 0; }
+    50% { top: -50%; left: 100%; }
+    100% { top: 50%; left: 0; }
+}
+/* Navigation Bar */
+.header {
+    width: 100%;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 15px 0;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Links */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Active Link Effect */
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
+/* Increased Space Below Header */
+.container {
+    position: absolute;
+        bottom: 200px;
+    rigth: 10px; /* Moves content to the left */
+    text-align: center;
+    width: 70%;
+    z-index: 1;
+}
+.container1 {
+    position: absolute;
+    bottom: 700px;
+    left: 100px; /* Moves content to the left */
+    text-align: left;
+    width: 40%;
+    z-index: 1;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 100px;
+    color: white;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7); /* Adds a dark shadow */
+    margin-bottom: 10px;
+}
+.container1 h1{
+    font-size: 75px;
+}
+
+
+/* Paragraph Styling */
+.container p {
+    font-size: 30px;
+    color: white;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Adds a dark shadow */
+    font-family: Grechen Fuemen;
+    line-height: 1.6;
+}
+/* Footer */
+.footer {
+    width: 100%;
+    background: linear-gradient(to right, #e47b13, #579ce6);
+    opacity: 80%;
+    color: black;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3); /* Adjusted for a subtle shadow effect */
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 1;
+}
+
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
