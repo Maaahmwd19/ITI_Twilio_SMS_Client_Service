@@ -23,9 +23,9 @@ public class SendVerificationCodeServlet extends HttpServlet {
 //        String authToken = (String) session.getAttribute("auth_token");
 //        String from = (String) session.getAttribute("phoneNumber"); 
         
-    String accountSid="AC678155c90723b11bab7f47605d59195e";
-    String authToken="9f59780a875c0ab154d0946b6204e09d";
-    String from="+18314329014";
+    String accountSid="";
+    String authToken="";
+    String from="+";
         
 
 
