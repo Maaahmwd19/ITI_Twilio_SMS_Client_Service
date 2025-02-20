@@ -25,7 +25,6 @@ body::after {
     opacity: 0.2;
     animation: moveShape 10s ease-in-out infinite;
 }
-
 body::after {
     background: #ff7f00;
     animation: moveShape2 15s ease-in-out infinite;
@@ -37,8 +36,11 @@ body::after {
     0% { top: -50%; left: -50%; }
     50% { top: 100%; left: 50%; }
     100% { top: -50%; left: -50%; }
-}
 
+.navbar-item {
+
+}
+}
 @keyframes moveShape2 {
     0% { top: 50%; left: 0; }
     50% { top: -50%; left: 100%; }
@@ -48,7 +50,8 @@ body::after {
 /* Container Styling */
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1600px;
+    max-hight: 200px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 8px;
@@ -59,6 +62,7 @@ body::after {
     flex-direction: column;
     align-items: center;
     z-index: 1; /* Ensure content appears above shapes */
+    margin-top: 2px;
 }
 
 /* Title Styling */
@@ -74,7 +78,9 @@ h1 {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Ensures all elements stay in one row */
+    align-items: center;
+    width: 100%;
 }
 
 /* Input & Button Styling */
@@ -84,33 +90,41 @@ h1 {
     border-radius: 4px;
     border: 1px solid #ddd;
 }
-
 .search-section input {
     flex: 1;
 }
-
 .search-section button {
     background-color: #007bff;
     color: white;
     cursor: pointer;
 }
-
 .search-section button:hover {
     background-color: #0056b3;
 }
 
-/* Table Styling */
-.table-container {
-    background-color: #fff;
+/* Table Frame Styling */
+.table-frame {
+    width: 100%;
+    height: 400px; /* Set the height you want */
+    overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
-    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
+    position: relative;
+}
+
+/* Pin Table Header */
+table thead {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 1;
 }
 
 th, td {
@@ -166,28 +180,66 @@ tr:hover {
     background-color: #218838;
 }
 
-/* Pagination Styling */
-.pagination {
+/* Navigation Bar */
+.header {
+    width: 100%;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 15px 0;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+    gap: 20px;
 }
 
-.pagination button {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 8px 12px;
-    margin: 0 5px;
-    border-radius: 3px;
-    cursor: pointer;
+/* Navigation Links */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.pagination button:hover {
-    background-color: #f1f1f1;
+/* Hover Effect */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
-.pagination .active {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
+/* Active Link Effect */
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background: linear-gradient(to right, #e47b13, #579ce6);
+    opacity: 80%;
+    color: black;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3); /* Adjusted for a subtle shadow effect */
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 1;
 }
