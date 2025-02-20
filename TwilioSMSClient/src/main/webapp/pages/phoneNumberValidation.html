@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Phone Number</title>
+</head>
+<body>
+    <h2>Enter Your Phone Number</h2>
+    <form action="/TwilioSMSClient/SendVerificationCodeServlet" method="post">
+        Phone Number: <input type="text" name="phoneNumber" required><br><br>
+        <input type="submit" value="Send Code">
+    </form>
+</body>
+</html>

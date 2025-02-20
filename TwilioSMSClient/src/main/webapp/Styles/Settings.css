@@ -1,0 +1,258 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Shapes */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    width: 300%;
+    height: 300%;
+    background: #007bff;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: moveShape 10s ease-in-out infinite;
+}
+body::after {
+    background: #ff7f00;
+    animation: moveShape2 15s ease-in-out infinite;
+    opacity: 0.15;
+}
+
+/* Keyframes for Shapes Animation */
+@keyframes moveShape {
+    0% { top: -50%; left: -50%; }
+    50% { top: 100%; left: 50%; }
+    100% { top: -50%; left: -50%; }
+}
+
+@keyframes moveShape2 {
+    0% { top: 50%; left: 0; }
+    50% { top: -50%; left: 100%; }
+    100% { top: 50%; left: 0; }
+}
+
+/* Navigation Bar */
+.header {
+    width: 100%;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 15px 0;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Links */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Active Link Effect */
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
+/* Settings Container */
+.container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+    width: 40%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Field Styles */
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.field input:focus {
+    border: 1px solid #007bff;
+}
+
+/* Eye Icon for Twilio Token */
+.show-icon {
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.show-icon:hover {
+    color: #ff7f00;
+}
+
+/* Edit Button */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background: linear-gradient(to right, #007bff, #ff7f00);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background: linear-gradient(to right, #e47b13, #579ce6);
+    opacity: 80%;
+    color: black;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Title */
+.modal-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Password Input */
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Buttons */
+.modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    width: 48%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.modal-buttons button.confirm {
+    background: #007bff;
+    color: white;
+}
+
+.modal-buttons button.cancel {
+    background: #ff7f00;
+    color: white;
+}
+
+.modal-buttons button:hover {
+    transform: scale(1.05);
+}

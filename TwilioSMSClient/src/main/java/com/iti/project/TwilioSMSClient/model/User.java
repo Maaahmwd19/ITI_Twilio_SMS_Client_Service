@@ -1,156 +1,60 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// src/main/java/com/iti/project/TwilioSMSClient/model/User.java
 package com.iti.project.TwilioSMSClient.model;
 
-/**
- * Represents a user in the system.
- *
- * @author mibrahim
- */
+import java.util.Date;
+
 public class User {
     private int id;
-    private String email;
-    private String username;
-    private String password;
     private String name;
+    private String username;
+    private Date birthday;
+    private String password;
     private String phoneNumber;
-    private Role role;
-    private String twilioAccountSid;
-    private String twilioAuthToken;
-    private String twilioSenderId;
+    private String job;
+    private String email;
+    private String address;
+    private String accountSid;
+    private String authToken;
+    private String senderId;
+    private String role;
 
-    /**
-     * Enum representing the roles a user can have.
-     */
-    public enum Role {
-        ADMIN,
-        CUSTOMER;
-    }
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    /**
-     * Default constructor initializing all fields to default values.
-     */
-    public User() {
-        this.id = 0;
-        this.email = "";
-        this.username = "";
-        this.password = "";
-        this.name = "";
-        this.phoneNumber = "";
-        this.role = Role.CUSTOMER;
-        this.twilioAccountSid = "";
-        this.twilioAuthToken = "";
-        this.twilioSenderId = "";
-    }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
-    /**
-     * Parameterized constructor to initialize all fields.
-     *
-     * @param id The user's ID.
-     * @param email The user's email.
-     * @param username The user's username.
-     * @param password The user's password.
-     * @param name The user's name.
-     * @param phoneNumber The user's phone number.
-     * @param role The user's role.
-     * @param twilioAccountSid The Twilio account SID.
-     * @param twilioAuthToken The Twilio authentication token.
-     * @param twilioSenderId The Twilio sender ID.
-     */
-    public User(int id, String email, String username, String password, String name, String phoneNumber, Role role, String twilioAccountSid, String twilioAuthToken, String twilioSenderId) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.role = role;
-        this.twilioAccountSid = twilioAccountSid;
-        this.twilioAuthToken = twilioAuthToken;
-        this.twilioSenderId = twilioSenderId;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    // Setters
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Date getBirthday() { return birthday; }
+    public void setBirthday(Date birthday) { this.birthday = birthday; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public String getJob() { return job; }
+    public void setJob(String job) { this.job = job; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+    public String getAccountSid() { return accountSid; }
+    public void setAccountSid(String accountSid) { this.accountSid = accountSid; }
 
-    public void setTwilioAccountSid(String twilioAccountSid) {
-        this.twilioAccountSid = twilioAccountSid;
-    }
+    public String getAuthToken() { return authToken; }
+    public void setAuthToken(String authToken) { this.authToken = authToken; }
 
-    public void setTwilioAuthToken(String twilioAuthToken) {
-        this.twilioAuthToken = twilioAuthToken;
-    }
+    public String getSenderId() { return senderId; }
+    public void setSenderId(String senderId) { this.senderId = senderId; }
 
-    public void setTwilioSenderId(String twilioSenderId) {
-        this.twilioSenderId = twilioSenderId;
-    }
-
-    // Getters
-    public int getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public String getTwilioAccountSid() {
-        return twilioAccountSid;
-    }
-
-    public String getTwilioAuthToken() {
-        return twilioAuthToken;
-    }
-
-    public String getTwilioSenderId() {
-        return twilioSenderId;
-    }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
