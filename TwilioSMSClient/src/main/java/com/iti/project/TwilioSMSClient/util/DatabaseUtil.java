@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 
 public class DatabaseUtil {
-       private static final String DB_URL = "jdbc:mysql://localhost:3306/twilloProject";
+       private static final String DB_URL = "jdbc:mysql://localhost:3306/twiliosms_db";
     private static final String USER = "root";
-    private static final String PASS = "Mahmoud1901**";
+    private static final String PASS = "password";
 
 
    static {

@@ -13,6 +13,8 @@
         <div class="shape"></div>
     </div>
         <form action="/TwilioSMSClient/LoginServlet" method="post">
+            <div id="successMessage" style="display:none; color: green;"></div>
+
             <h3>Login Here</h3>
 
         <label for="username">Username</label>
@@ -22,10 +24,19 @@
         <input type="password" placeholder="Password" id="password"  name="password">
 
         <button>Log In</button><br><br>
-        
         <div class="resgister-link">
             <p>Don't have an account? <a href="register.html">Register</a></p>
         </div>
     </form>
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("success")) {
+                document.getElementById("successMessage").innerText = params.get("success");
+                document.getElementById("successMessage").style.display = "block";
+            }
+        };
+        </script>        
 </body>
+
 </html>
