@@ -20,6 +20,12 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <servlet-class>com.iti.project.TwilioSMSClient.servlets.RegistrationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserSessionServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.UserSessionServlet</servlet-class>
+    </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
@@ -40,6 +46,12 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <url-pattern>/RegistrationServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserSessionServlet</servlet-name>
+        <url-pattern>/UserSessionServlet</url-pattern>
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
