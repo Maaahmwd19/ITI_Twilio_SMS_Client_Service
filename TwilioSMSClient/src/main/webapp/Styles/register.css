@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #080710;
+  
+  }
+  
+  .background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+  
+  .background .shape {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .shape:first-child {
+    background: linear-gradient(#1845ad, #23a2f6);
+    left: -100px;
+    top: -50px;
+  }
+  
+  .shape:last-child {
+    background: linear-gradient(to right, #ff512f, #f09819);
+    right: -100px;
+    bottom: -32px;
+  }
+  
+  .wrapper {
+    height: 570px;
+    width: 500px;
+    padding: 25px 35px ;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  }
+  
+  .wrapper h1 {
+    font-size: 30px; 
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+  }
+  .wrapper * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+  }
+  
+  
+  .wrapper .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 0;
+  }
+  
+  .input-box .input-field {
+    display: flex;
+    flex-wrap: wrap;
+    width:48%;
+    padding-bottom: 10px;
+  }
+  
+  
+  label {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  input {
+    display: inline-block;
+    width: calc(100% - 10px);
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 5px;
+    padding: 0 20px;
+    margin-top: 8px;
+    font-weight: 400;
+    vertical-align: middle;
+  
+    height: 35px;
+    font-size: 14px;
+  }
+  ::placeholder {
+    color: #e5e5e5;
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710 !important;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .resgister-link{
+    padding-top: 15px;
+  }
+  
+  .resgister-link p{
+    font-size: 14px;
+    font-weight: 400;
+  }
