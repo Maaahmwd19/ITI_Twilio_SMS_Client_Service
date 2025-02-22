@@ -24,8 +24,14 @@
         <servlet-name>UserSessionServlet</servlet-name>
         <servlet-class>com.iti.project.TwilioSMSClient.servlets.UserSessionServlet</servlet-class>
     </servlet>
-    
-    
+    <servlet>
+        <servlet-name>SMSHistoryServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.SMSHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSMSServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.DeleteSMSServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
@@ -50,8 +56,14 @@
         <servlet-name>UserSessionServlet</servlet-name>
         <url-pattern>/UserSessionServlet</url-pattern>
     </servlet-mapping>
-    
-    
+    <servlet-mapping>
+        <servlet-name>SMSHistoryServlet</servlet-name>
+        <url-pattern>/SMSHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSMSServlet</servlet-name>
+        <url-pattern>/DeleteSMSServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
