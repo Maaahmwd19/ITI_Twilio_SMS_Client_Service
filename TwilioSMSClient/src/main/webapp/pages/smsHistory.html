@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMS History</title>
-    <link rel="stylesheet" href="../Styles/SMShistory.css">
-</head>
-<body>
-    <div class="container">
-        <h1>SMS History</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viwe Twillo SMS History </title>
+    <link rel="icon" type="image/png" href="../images/message.png">
+        <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
+        <link rel="stylesheet" href="../Styles/SMShistory.css">
+    </head>
 
-        <div class="search-section">
-            <input type="text" id="searchFrom" placeholder="Search by From">
-            <input type="text" id="searchTo" placeholder="Search by To">
-            <input type="date" id="startDate">
-            <input type="date" id="endDate">
-            <button class="filter-button" onclick="searchSMS()">Search</button>
+    <body>
+        <header class="header">
+            <nav>
+                <ul>
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="SendSMS.html">Send Message</a></li>
+                    <li><a href="smsHistory.html" class="active">SMS History</a></li>
+                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h1>SMS History</h1>
+            <div class="search-section">
+                <input type="text" id="searchFrom" placeholder="Search by From">
+                <input type="text" id="searchTo" placeholder="Search by To">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+                <button class="filter-button" onclick="searchSMS()">Search</button>
+            </div>
+            <div class="table-frame">
+                <table id="smsTable">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Body</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- SMS Data Will Be Populated Here Dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div class="table-container">
-            <table id="smsTable">
-                <thead>
-                    <tr>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Body</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Jane Smith</td>
-                        <td>Hello, how are you?</td>
-                        <td>2025-02-15</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Alice Cooper</td>
-                        <td>Bob Marley</td>
-                        <td>Meeting at 3 PM</td>
-                        <td>2025-02-14</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <!-- Add more rows here -->
-                </tbody>
-            </table>
-        </div>
+        <footer class="footer">
+            <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
+        </footer>
 
-        <div class="pagination">
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+        <script src="../Scripts/SMShistory.js"></script>
+    </body>
 </html>

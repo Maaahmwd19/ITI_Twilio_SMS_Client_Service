@@ -1,0 +1,83 @@
+/* Navigation Bar */
+.header {
+    width: 100%;
+    background: linear-gradient(to right, #007bff, #ff7f00); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 15px 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Links */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Active Link Effect */
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
+/* Increased Space Below Header */
+.container {
+    margin-top: 300px; /* Adjusted for larger header */
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+.footer {
+    width: 100%;
+    background: linear-gradient(to right, #e47b13, #579ce6);
+    opacity: 80%;
+    color: black;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 1;
+}
+
+
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid white;
+}
+
+
