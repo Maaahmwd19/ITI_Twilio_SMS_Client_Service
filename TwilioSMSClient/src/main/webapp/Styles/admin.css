@@ -1,1 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    overflow: hidden;
+}
+
+/* Background Effect */
+.background-effect {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Multiple Colorful Layers */
+.background-effect::before,
+.background-effect::after,
+.background-effect .layer-1,
+.background-effect .layer-2 {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200vmax;
+    height: 200vmax;
+    transform-origin: center;
+    animation: rotate 60s infinite linear;
+    z-index: -1;
+}
+
+/* Layer 1: Red to Orange Gradient */
+.background-effect::before {
+    background: radial-gradient(circle at center, #e46569, #ecaf81);
+    transform: rotate(0deg);
+    opacity: 0.6;
+}
+
+/* Layer 2: Blue to Purple Gradient */
+.background-effect::after {
+    background: radial-gradient(circle at center, #60b8d4, #3745b5);
+    transform: rotate(45deg);
+    opacity: 0.5;
+    animation-delay: 10s; /* Slightly delayed rotation */
+}
+
+/* Layer 3: Green to Yellow Gradient */
+.background-effect .layer-1 {
+    background: radial-gradient(circle at center, #8bc34a, #fdd835);
+    transform: rotate(-30deg);
+    opacity: 0.4;
+    animation-delay: 20s; /* Delayed rotation */
+}
+
+/* Layer 4: Pink to Magenta Gradient */
+.background-effect .layer-2 {
+    background: radial-gradient(circle at center, #94440c, #fb5203);
+    transform: rotate(60deg);
+    opacity: 0.3;
+    animation-delay: 30s; /* Delayed rotation */
+}
+
+/* Admin Panel Container */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background: #0a36b8;
+    color: #fff;
+    margin: 0;
+    font-size: 24px;
+    border-radius: 8px 8px 0 0;
+}
+
+.table-container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f6f9;
+    font-weight: bold;
+}
+
+.scrollable-table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.actions {
+    text-align: right;
+}
+
+button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
+    background-color: #3745b5;
+    color: #fff;
+}
+
+.view-btn:hover {
+    background-color: #2a359c;
+}
+
+.delete-btn {
+    background-color: #e46569;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c14d52;
+}
+
+/* Keyframes for Background Animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
