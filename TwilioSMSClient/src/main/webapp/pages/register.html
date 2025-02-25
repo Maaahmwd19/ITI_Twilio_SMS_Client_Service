@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Twillo Registeration </title>
+    <link rel="icon" type="image/png" href="../images/message.png">
     <link rel="stylesheet" href="../Styles/register.css">
 </head>
 
@@ -14,62 +15,65 @@
         <div class="shape"></div>
     </div>
     <div class="wrapper">
-        <form action="/TwilioSMSClient/RegistrationServlet" method="post"> <!-- Corrected 'from' to 'form' -->
-            <div id="errorMessage" style="display:none; color: red;"></div>
-
+        <form action="/TwilioSMSClient/RegistrationServlet" method="post">
             <h1>Registration</h1>
 
             <div class="input-box">
                 <div class="input-field">
                     <label for="name">Name</label>
-                    <input type="text" placeholder="Enter your full name" id="name" name="name" required> <!-- Added name attribute -->
+                    <input type="text" name="name" placeholder="Enter your full name" id="name" required>
                 </div>
                 <div class="input-field">
-                    <label for="uname">UserName</label> <!-- Corrected 'for' attribute -->
-                    <input type="text" placeholder="Enter your user name" id="uname" name="uname" required> <!-- Added name attribute -->
+                    <label for="uname">Username</label>
+                    <input type="text" name="username" placeholder="Enter your username" id="uname" required>
                 </div>
                 <div class="input-field">
                     <label for="birthday">Birthday</label>
-                    <input type="date" id="birthday" name="birthday" required> <!-- Added name attribute -->
+                    <input type="date" name="birthday" id="birthday" required>
                 </div>
                 <div class="input-field">
                     <label for="job">Job</label>
-                    <input type="text" placeholder="Enter your job title" id="job" name="job" required> <!-- Added name attribute -->
+                    <input type="text" name="job" placeholder="Enter your job title" id="job" required>
                 </div>
                 <div class="input-field">
                     <label for="phone">Phone</label>
-                    <input type="text" placeholder="Enter your phone Number" id="phone" name="phone" required> <!-- Added name attribute -->
+                    <input type="text" name="phone" placeholder="Enter your phone number" id="phone" required>
                 </div>
                 <div class="input-field">
                     <label for="address">Address</label>
-                    <input type="text" placeholder="Enter your address" id="address" name="address" required> <!-- Added name attribute -->
+                    <input type="text" name="address" placeholder="Enter your address" id="address" required>
                 </div>
                 <div class="input-field">
                     <label for="email">Email</label>
-                    <input type="email" placeholder="Enter your email" id="email" name="email" required> <!-- Added name attribute -->
+                    <input type="email" name="email" placeholder="Enter your email" id="email" required>
                 </div>
                 <div class="input-field">
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Enter your password" id="password" name="password" required> <!-- Corrected id and added name attribute -->
+                    <input type="password" name="password" placeholder="Enter your password" id="password" required>
                 </div>
                 <div class="input-field">
                     <label for="twilio_sid">Twilio Account SID</label>
-                    <input type="text" placeholder="Enter your Twilio SID" id="twilio_sid" name="twilio_sid"> <!-- Added name attribute -->
+                    <input type="text" name="twilio_sid" placeholder="Enter your Twilio SID" id="twilio_sid">
                 </div>
                 <div class="input-field">
                     <label for="twilio_token">Twilio Token</label>
-                    <input type="text" placeholder="Enter your Twilio Token" id="twilio_token" name="twilio_token"> <!-- Added name attribute -->
+                    <input type="text" name="twilio_token" placeholder="Enter your Twilio Token" id="twilio_token">
                 </div>
-                <input type="submit" value="Register">
-                <div class="register-link"> 
-                    <p>I already have an account? <a href="login.html">SignIn</a></p>
+                <div class="input-field">
+                    <label for="twilio_sender_id">Twilio Sender ID</label>
+                    <input type="text" name="twilio_sender_id" placeholder="Enter your Twilio Sender ID" id="twilio_sender_id">
                 </div>
+                <input id="register" type="submit" value="Register">
             </div>
-        </form> 
+        </form>
+
+        <div class="register-link">
+            <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </div>
     </div>
     
     
-    <script>
+<!--    <script>
         window.onload = function() {
             const params = new URLSearchParams(window.location.search);
             if (params.has("error")) {
@@ -77,7 +81,7 @@
                 document.getElementById("errorMessage").style.display = "block";
             }
         };
-    </script>
+    </script>-->
 </body>
 
 </html>

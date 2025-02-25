@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMS History</title>
-    <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
-    <link rel="stylesheet" href="../Styles/SMShistory.css">
- 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viwe Twillo SMS History </title>
+    <link rel="icon" type="image/png" href="../images/message.png">
+        <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
+        <link rel="stylesheet" href="../Styles/SMShistory.css">
+    </head>
 
-
-</head>
-
-    
+    <body>
         <header class="header">
             <nav>
                 <ul>
@@ -19,144 +17,42 @@
                     <li><a href="SendSMS.html">Send Message</a></li>
                     <li><a href="smsHistory.html" class="active">SMS History</a></li>
                     <li><a href="Settings.html">Settings</a></li>
-                    <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
+                    <li><a href="login.html">Logout</a></li>
                 </ul>
             </nav>
         </header>
-    <div class="container">
-        <h1>SMS History</h1>
-        <div class="search-section">
-            <input type="text" id="searchFrom" placeholder="Search by From">
-            <input type="text" id="searchTo" placeholder="Search by To">
-            <input type="date" id="startDate">
-            <input type="date" id="endDate">
-            <button class="filter-button" onclick="searchSMS()">Search</button>
+
+        <div class="container">
+            <h1>SMS History</h1>
+            <div class="search-section">
+                <input type="text" id="searchFrom" placeholder="Search by From">
+                <input type="text" id="searchTo" placeholder="Search by To">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+                <button class="filter-button" onclick="searchSMS()">Search</button>
+            </div>
+            <div class="table-frame">
+                <table id="smsTable">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Body</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- SMS Data Will Be Populated Here Dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="table-frame">
-            <table id="smsTable">
-                <thead>
-                    <tr>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Body</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Jane Smith</td>
-                        <td>Hello, how are you?</td>
-                        <td>2025-02-15</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Alice Cooper</td>
-                        <td>Bob Marley</td>
-                        <td>Meeting at 3 PM</td>
-                        <td>2025-02-14</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Charlie Brown</td>
-                        <td>Lisa Simpson</td>
-                        <td>Don't forget the meeting!</td>
-                        <td>2025-02-13</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>David Beckham</td>
-                        <td>Mariah Carey</td>
-                        <td>Happy Birthday!</td>
-                        <td>2025-02-12</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Ethan Hunt</td>
-                        <td>Jennifer Lawrence</td>
-                        <td>See you at the park.</td>
-                        <td>2025-02-11</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Fred Flintstone</td>
-                        <td>Betty Rubble</td>
-                        <td>Let's go to the diner.</td>
-                        <td>2025-02-10</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>George Clooney</td>
-                        <td>Amelia Earhart</td>
-                        <td>Can we reschedule?</td>
-                        <td>2025-02-09</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Hank Hill</td>
-                        <td>Peggy Hill</td>
-                        <td>How about dinner?</td>
-                        <td>2025-02-08</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Indiana Jones</td>
-                        <td>Mary Poppins</td>
-                        <td>Adventure awaits!</td>
-                        <td>2025-02-07</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Jack Sparrow</td>
-                        <td>Will Turner</td>
-                        <td>Time to set sail!</td>
-                        <td>2025-02-06</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>John Wayne</td>
-                        <td>Mary Poppins</td>
-                        <td>Howdy do' partner!</td>
-                        <td>2025-02-05</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Kate Winslet</td>
-                        <td>Leonardo DiCaprio</td>
-                        <td>Are you coming?</td>
-                        <td>2025-02-04</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Luke Skywalker</td>
-                        <td>Leia Organa</td>
-                        <td>I love you.</td>
-                        <td>2025-02-03</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Mary Jane Watson</td>
-                        <td>Peter Parker</td>
-                        <td>Busy day ahead!</td>
-                        <td>2025-02-02</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Naruto Uzumaki</td>
-                        <td>Hinata Hyuga</td>
-                        <td>Training session?</td>
-                        <td>2025-02-01</td>
-                        <td class="actions"><button class="delete-btn" onclick="deleteSMS(this)">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-     <!-- Footer -->
+
         <footer class="footer">
             <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
         </footer>
-    <script src="../Scripts/SMShistory.js"></script>
 
+        <script src="../Scripts/SMShistory.js"></script>
+    </body>
 </html>
