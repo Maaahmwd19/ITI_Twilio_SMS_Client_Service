@@ -31,10 +31,11 @@ public class RegistrationServlet extends HttpServlet {
         String twilioToken = request.getParameter("twilio_token");
       
         try (Connection conn = DatabaseUtil.getConnection()) {
-            String checkUserSql = "SELECT * FROM users WHERE phone_number = ? OR email = ?";
+            String checkUserSql = "SELECT * FROM users WHERE phone_number = ? OR email = ? or username = ?";
             PreparedStatement checkStmt = conn.prepareStatement(checkUserSql);
             checkStmt.setString(1, phone);
             checkStmt.setString(2, email);
+            checkStmt.setString(3, username);
             ResultSet rs = checkStmt.executeQuery();
             
             if (rs.next()) {

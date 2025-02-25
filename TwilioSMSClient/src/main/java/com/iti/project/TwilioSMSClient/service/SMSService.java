@@ -34,7 +34,7 @@ public class SMSService{
                     new PhoneNumber(from),
                     body
             ).create();
-            System.out.println("SMS Sent: " + message.getSid());
+            SMSDAO.saveSMS(userId, from, to, body, message.getStatus().toString().toLowerCase());
         } catch (ApiException e) {
             System.err.println("Failed to send SMS: " + e.getMessage());
             throw e;

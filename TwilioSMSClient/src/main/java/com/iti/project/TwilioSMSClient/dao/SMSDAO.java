@@ -26,6 +26,7 @@ try {
     stmt.setString(4, body);
     stmt.setString(5, status);
     stmt.executeUpdate();
+    
 }catch (Exception e){
     e.printStackTrace();
 }
