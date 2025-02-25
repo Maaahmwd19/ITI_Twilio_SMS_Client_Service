@@ -1,15 +1,18 @@
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\RegistrationServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\VerifyCodeServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\model\User.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\CustomerServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\dao\SMSDAO.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\service\SMSService.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\model\SMS.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\SendSmsServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\dao\UserDAO.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\SendVerificationCodeServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\util\DatabaseUtil.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\ProfileServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\AdminServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\LogoutServlet.java
-C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\LoginServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/dao/UserDAO.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/VerifyCodeServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/UserSessionServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/model/SMS.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/SMSHistoryServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/SendSmsServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/ProfileServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/SendVerificationCodeServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/dao/SMSDAO.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/service/SMSService.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/RegistrationServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/util/DatabaseUtil.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/LogoutServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/DeleteSMSServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/AdminServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/model/User.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/CustomerServlet.java
+/home/mibrahim/project/ITI_Twilio_SMS_Client_Service/TwilioSMSClient/src/main/java/com/iti/project/TwilioSMSClient/servlets/LoginServlet.java
