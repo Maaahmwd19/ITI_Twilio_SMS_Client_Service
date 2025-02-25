@@ -1,15 +1,86 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - User Management</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="background-effect">
+        <div class="container">
+            <h1>Admin Panel - User List</h1>
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th style="width: 100%; text-align: right;">Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="scrollable-table">
+                    <table>
+                        <tbody id="userList">
+                            <tr>
+                                <td>John Doe</td>
+                                <td class="actions" style="text-align: right;">
+                                    <form action="ViewHistoryServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="John Doe">
+                                        <button type="submit" class="view-btn">View History</button>
+                                    </form>
+                                    <form action="DeleteUserServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="John Doe">
+                                        <button type="submit" class="delete-btn">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td class="actions" style="text-align: right;">
+                                    <form action="ViewHistoryServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Jane Smith">
+                                        <button type="submit" class="view-btn">View History</button>
+                                    </form>
+                                    <form action="DeleteUserServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Jane Smith">
+                                        <button type="submit" class="delete-btn">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Michael Johnson</td>
+                                <td class="actions" style="text-align: right;">
+                                    <form action="ViewHistoryServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Michael Johnson">
+                                        <button type="submit" class="view-btn">View History</button>
+                                    </form>
+                                    <form action="DeleteUserServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Michael Johnson">
+                                        <button type="submit" class="delete-btn">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emily Davis</td>
+                                <td class="actions" style="text-align: right;">
+                                    <form action="ViewHistoryServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Emily Davis">
+                                        <button type="submit" class="view-btn">View History</button>
+                                    </form>
+                                    <form action="DeleteUserServlet" method="post" style="display:inline;">
+                                        <input type="hidden" name="username" value="Emily Davis">
+                                        <button type="submit" class="delete-btn">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
