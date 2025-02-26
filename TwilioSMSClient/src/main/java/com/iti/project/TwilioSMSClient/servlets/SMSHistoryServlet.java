@@ -18,8 +18,13 @@ public class SMSHistoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        
+        
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        
 
         HttpSession session = request.getSession(false);
         String username = (session != null) ? (String) session.getAttribute("username") : null;
@@ -36,7 +41,8 @@ public class SMSHistoryServlet extends HttpServlet {
                  "FROM sms s " +
                  "JOIN users u1 ON s.from_number = u1.phone_number " +
                  "JOIN users u2 ON s.to_number = u2.phone_number " +
-                 "WHERE u1.username = ? OR u2.username = ?")) {
+                 "WHERE u1.username = ? OR u2.username = ?"
+                    +"ORDER BY  s.date DESC")) {
 
             ps.setString(1, username);
             ps.setString(2, username);

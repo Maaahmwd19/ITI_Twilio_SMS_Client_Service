@@ -1,15 +1,180 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - User Management</title>
+    <link rel="stylesheet" href="../Styles/admin.css">
+</head>
+<body>
+    <div class="background-effect">
+        <div class="container">
+            <h1>Admin Panel - User List</h1>
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th style="width: 100%; text-align: right;">Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+                <!-- Scrollable user list -->
+                <div class="scrollable-table">
+                    <table>
+                        <tbody id="userList">
+                            <tr>
+                                <td>John Doe</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('John Doe')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Jane Smith')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Michael Johnson</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Michael Johnson')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emily Davis</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Emily Davis')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>William Brown</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('William Brown')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Olivia Wilson</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Olivia Wilson')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>James Anderson</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('James Anderson')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Isabella Martinez</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Isabella Martinez')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Alexander Thomas</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Alexander Thomas')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sophia Garcia</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Sophia Garcia')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>David Wilson</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('David Wilson')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emma Taylor</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Emma Taylor')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Joseph Brown</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Joseph Brown')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Grace Clark</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Grace Clark')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Matthew Lee</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Matthew Lee')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Laura White</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Laura White')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Christopher Hall</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Christopher Hall')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Amy Adams</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Amy Adams')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Benjamin King</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Benjamin King')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Charlotte Lewis</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Charlotte Lewis')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Daniel Moore</td>
+                                <td class="actions" style="text-align: right;">
+                                    <button class="view-btn" onclick="viewHistory('Daniel Moore')">View History</button>
+                                    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

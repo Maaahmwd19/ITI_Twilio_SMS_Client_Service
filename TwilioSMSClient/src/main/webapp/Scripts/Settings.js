@@ -1,32 +1,48 @@
-let actionType = ""; // Track if it's for viewing Twilio token or editing
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/TwilioSMSClient/settings")
+        .then(response => response.json())
+        .then(user => {
+            if (!user || Object.keys(user).length === 0) {
+                console.warn("No user data found or user is not logged in.");
+                return;
+            }
 
-function requestPassword(type) {
-    actionType = type; // Save action type ("view" or "edit")
-    document.getElementById("passwordModal").style.display = "flex";
+            document.getElementById("id").value = user.id || "";
+            document.getElementById("name").value = user.name || "";
+            document.getElementById("username").value = user.username || "";
+            document.getElementById("email").value = user.email || "";
+            document.getElementById("job").value = user.job || "";
+            document.getElementById("phone").value = user.phoneNumber || "";
+            document.getElementById("twilio").value = user.accountSid || "";
+            document.getElementById("twilioToken").value = "••••••••"; // Hide token by default
+
+            console.log("User settings loaded successfully.");
+        })
+        .catch(error => console.error("Error fetching user settings:", error));
+});
+
+function enableEditing() {
+    document.getElementById("name").removeAttribute("readonly");
+    document.getElementById("email").removeAttribute("readonly");
+    document.getElementById("job").removeAttribute("readonly");
+    document.getElementById("phone").removeAttribute("readonly");
+
+    document.getElementById("saveButton").style.display = "block";
 }
 
-function validatePassword() {
-    let password = document.getElementById("passwordInput").value;
-
-    if (password === "19012001") { // Replace with actual password check
-        if (actionType === "view") {
-            fetch('/api/settings')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("twilioToken").value = data.twilioToken;
-                    document.getElementById("twilioToken").type = "text";
-                });
-        } else if (actionType === "edit") {
-            document.querySelectorAll("input:not(#twilioToken)").forEach(input => input.removeAttribute("readonly"));
-        }
-
-        closeModal();
-    } else {
-        alert("Incorrect password!");
+function requestPassword() {
+    if (!confirm("Do you want to reveal your Twilio Token?")) {
+        return;
     }
-}
 
-function closeModal() {
-    document.getElementById("passwordModal").style.display = "none";
-    document.getElementById("passwordInput").value = ""; // Clear input
+    fetch("/TwilioSMSClient/revealToken")
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("twilioToken").value = data.token;
+            } else {
+                alert("Failed to retrieve token.");
+            }
+        })
+        .catch(error => console.error("Error fetching Twilio token:", error));
 }

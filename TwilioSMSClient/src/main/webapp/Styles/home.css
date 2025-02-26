@@ -120,30 +120,7 @@ h1 {
 }
 
 
-/* Paragraph Styling */
-.container p {
-    font-size: 30px;
-    color: white;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Adds a dark shadow */
-    font-family: Grechen Fuemen;
-    line-height: 1.6;
-}
-/* Footer */
-.footer {
-    width: 100%;
-    background: linear-gradient(to right, #e47b13, #579ce6);
-    opacity: 80%;
-    color: black;
-    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3); /* Adjusted for a subtle shadow effect */
-    text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    font-size: 1.1em;
-    font-weight: bold;
-    z-index: 1;
-}
+
 
 nav ul li a.active {
     background: rgba(255, 255, 255, 0.3);

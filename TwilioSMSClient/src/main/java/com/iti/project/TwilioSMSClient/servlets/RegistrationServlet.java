@@ -107,11 +107,11 @@ public class RegistrationServlet extends HttpServlet {
                     }
 
                     // 🌟 Show success alert & Redirect
-                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login.html';</script>");
+                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/login1.html';</script>");
                 } else {
                     conn.rollback(); // Rollback if insert failed
                     System.err.println("❌ Error: User not inserted.");
-                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register.html';</script>");
+                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register1.html';</script>");
                 }
             }
         } catch (SQLException e) {

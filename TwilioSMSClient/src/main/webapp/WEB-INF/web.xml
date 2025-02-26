@@ -32,6 +32,18 @@
         <servlet-name>DeleteSMSServlet</servlet-name>
         <servlet-class>com.iti.project.TwilioSMSClient.servlets.DeleteSMSServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingsServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.SettingsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RevealTokenServlet</servlet-name>
+        <servlet-class>com.iti.project.TwilioSMSClient.servlets.RevealTokenServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
@@ -63,6 +75,18 @@
     <servlet-mapping>
         <servlet-name>DeleteSMSServlet</servlet-name>
         <url-pattern>/DeleteSMSServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/UpdateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingsServlet</servlet-name>
+        <url-pattern>/SettingsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RevealTokenServlet</servlet-name>
+        <url-pattern>/RevealTokenServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

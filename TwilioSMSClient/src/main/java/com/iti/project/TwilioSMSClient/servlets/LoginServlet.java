@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
             } else {
                 request.setAttribute("errorMessage", "Invalid username or password.");
-                request.getRequestDispatcher("/TwilioSMSClient/pages/login.html").forward(request, response);
+                request.getRequestDispatcher("/TwilioSMSClient/login1.html").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();

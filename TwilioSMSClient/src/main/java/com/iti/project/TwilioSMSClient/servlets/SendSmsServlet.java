@@ -1,6 +1,7 @@
 
 package com.iti.project.TwilioSMSClient.servlets;
 
+import com.iti.project.TwilioSMSClient.dao.SMSDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class SendSmsServlet extends HttpServlet {
         int userId = (int) session.getAttribute("userId");
         try {
             SMSService.sendSMS(accountSid, authToken, from, to, body, userId);
-            //smsDao.saveSMS();
+           // SMSDAO.saveSMS(userId, from, to, body, to);
             response.sendRedirect("pages/smsHistory.html");
 
         } catch (ApiException e) {
