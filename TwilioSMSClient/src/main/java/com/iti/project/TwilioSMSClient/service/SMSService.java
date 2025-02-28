@@ -60,11 +60,15 @@ public class SMSService {
             ).create();
             
             System.out.println("SMS Sent: " + message.getSid());
-            status = "success";
+            status = message.getStatus().toString().toLowerCase();
         } catch (ApiException e) {
             System.err.println("Failed to send SMS: " + e.getMessage());
             throw e;
         } finally {
+            if(status !="success" || status !="delivered" || status !="sent")
+                status = "failed";
+            else
+                status = "success";
             SMSDAO.saveSMS(userId, from, to, body, status);
         }
     }

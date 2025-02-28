@@ -1,3 +1,4 @@
+C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\DeleteUserServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\RegistrationServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\VerifyCodeServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\model\User.java
@@ -13,6 +14,7 @@ C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\s
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\util\DatabaseUtil.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\ProfileServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\AdminServlet.java
+C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\ViewHistoryServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\LogoutServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\SMSHistoryServlet.java
 C:\Users\XPRISTO\Desktop\Telecom\12.Web For Telecom\smsProject\TwilioSMSClient\src\main\java\com\iti\project\TwilioSMSClient\servlets\LoginServlet.java

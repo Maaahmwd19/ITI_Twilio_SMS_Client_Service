@@ -31,7 +31,12 @@ public class LoginServlet extends HttpServlet {
 
                     session.setAttribute("username", user.getUsername()); 
                     System.out.println("username: " + user.getUsername());
-                    response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                    if(user.getRole().equals("admin")){
+                        response.sendRedirect("/TwilioSMSClient/pages/AdminHomePage.html");
+                    }
+                    else{
+                        response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                    }
                 } else {
                     response.sendRedirect("/TwilioSMSClient/pages/login.html?error=invalid_credentials");
                 }

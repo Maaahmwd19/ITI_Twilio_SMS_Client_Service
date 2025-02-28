@@ -7,6 +7,7 @@ com\iti\project\TwilioSMSClient\servlets\CustomerServlet.class
 com\iti\project\TwilioSMSClient\servlets\LogoutServlet.class
 com\iti\project\TwilioSMSClient\dao\SMSDAO.class
 com\iti\project\TwilioSMSClient\dao\UserDAO.class
+com\iti\project\TwilioSMSClient\servlets\DeleteUserServlet.class
 com\iti\project\TwilioSMSClient\servlets\UserSessionServlet.class
 com\iti\project\TwilioSMSClient\servlets\AdminServlet.class
 com\iti\project\TwilioSMSClient\servlets\LoginServlet.class
