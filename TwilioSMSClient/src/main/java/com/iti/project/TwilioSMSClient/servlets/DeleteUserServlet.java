@@ -1,4 +1,4 @@
-package com.iti.project.TwilioSMSClient.servlet;
+package com.iti.project.TwilioSMSClient.servlets;
 
 import com.iti.project.TwilioSMSClient.util.DatabaseUtil;
 import java.io.IOException;
