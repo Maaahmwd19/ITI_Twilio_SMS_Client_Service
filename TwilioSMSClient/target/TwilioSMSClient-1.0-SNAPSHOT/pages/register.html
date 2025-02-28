@@ -16,6 +16,7 @@
     </div>
     <div class="wrapper">
         <form action="/TwilioSMSClient/RegistrationServlet" method="post">
+            <div id="errorMessage"></div>
             <h1>Registration</h1>
 
             <div class="input-box">
@@ -73,7 +74,7 @@
     </div>
     
     
-<!--    <script>
+   <script>
         window.onload = function() {
             const params = new URLSearchParams(window.location.search);
             if (params.has("error")) {
@@ -81,7 +82,7 @@
                 document.getElementById("errorMessage").style.display = "block";
             }
         };
-    </script>-->
+    </script>
 </body>
 
 </html>

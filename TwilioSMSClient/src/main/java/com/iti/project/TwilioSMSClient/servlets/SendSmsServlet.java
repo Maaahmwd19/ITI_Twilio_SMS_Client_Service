@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.iti.project.TwilioSMSClient.service.SMSService;
 import com.twilio.exception.ApiException;
+import com.iti.project.TwilioSMSClient.model.User;
 /**
  *
  * @author XPRISTO
@@ -18,40 +19,49 @@ import com.twilio.exception.ApiException;
 @WebServlet(name = "SendSmsServlet", urlPatterns = {"/SendSmsServlet"})
 public class SendSmsServlet extends HttpServlet {
 
- protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
+        User user = (User) session.getAttribute("user");
 
-        String accountSid = (String) session.getAttribute("account_sid");
-        String authToken = (String) session.getAttribute("auth_token");
-        String from = (String) session.getAttribute("phoneNumber"); 
+        String from_number = (String) request.getParameter("from_number");
+        String to = request.getParameter("to_number");
+        String body = request.getParameter("body");
+        if (user == null) {
+            response.sendRedirect("/TwilioSMSClient/pages/login.html");
+            return;
+        }
+        String accountSid = (String) user.getAccountSid();
+        String authToken = (String) user.getAuthToken();
+       // String from = (String) session.getAttribute("phoneNumber"); 
+        Integer userId = (Integer) user.getId();
+        System.out.println("accountSid: " + accountSid);
+        System.out.println("authToken: " + authToken);
+        System.out.println("userId: " + userId);
+        System.out.println("from_number: " + from_number);
+        System.out.println(user.isVerified());
+        if(!user.isVerified()){
+            response.sendRedirect("/TwilioSMSClient/pages/phoneNumberValidation.html");
+            return;
+        }
+    
 
-        if (accountSid == null || authToken == null || from == null) {
+        
+        if (accountSid == null || authToken == null || from_number == null || userId == null || to == null || body == null) {
             response.getWriter().write("Twilio credentials not found in session.");
+            response.sendRedirect("/TwilioSMSClient/pages/SendSMS.html");
             return;
         }
 
-        String to = request.getParameter("to");
-        String body = request.getParameter("body");
+    
 
-        if (to == null || to.isEmpty() || body == null || body.isEmpty()) {
-            response.getWriter().write("Please enter both recipient's phone number and message body.");
-           response.sendRedirect("customerHome.html");
 
-        }
-        int userId = (int) session.getAttribute("userId");
         try {
-            SMSService.sendSMS(accountSid, authToken, from, to, body, userId);
-            //smsDao.saveSMS();
-            response.sendRedirect("pages/smsHistory.html");
-
+            SMSService.sendSMS(accountSid, authToken, from_number, to, body, userId);
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
         } catch (ApiException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Failed to send SMS: " + e.getMessage());
-             response.sendRedirect("pages/customerHome.html");
-
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
         }
-    }   
- 
-
-
+    }
 }

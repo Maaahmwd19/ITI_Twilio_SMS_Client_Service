@@ -47,72 +47,31 @@ public class RegistrationServlet extends HttpServlet {
 
         // 🌟 Establish database connection
         try (Connection conn = DatabaseUtil.getConnection()) {
-            if (conn == null) {
-                System.err.println("❌ ERROR: Database connection failed!");
-                out.println("<script>alert('Database connection error.'); window.location='register.html';</script>");
-                return;
-            }
+            String checkUserSql = "SELECT * FROM users WHERE phone_number = ? OR email = ? or username = ?";
+            PreparedStatement checkStmt = conn.prepareStatement(checkUserSql);
+            checkStmt.setString(1, phone);
+            checkStmt.setString(2, email);
+            checkStmt.setString(3, username);
+            ResultSet rs = checkStmt.executeQuery();
+            
+            if (rs.next()) {
+                response.sendRedirect("/TwilioSMSClient/pages/register.html?error=User with this phone number or email already exists.");
+            } else {
+                String sql = "INSERT INTO users (name, username, birthday, job, phone_number, email, address, password, twilio_account_sid, twilio_auth_token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setString(1, name);
+                stmt.setString(2, username);
+                stmt.setString(3, birthday);
+                stmt.setString(4, job);
+                stmt.setString(5, phone);
+                stmt.setString(6, email);
+                stmt.setString(7, address);
+                stmt.setString(8, password);
+                stmt.setString(9, twilioSid);
+                stmt.setString(10, twilioToken);
 
-            conn.setAutoCommit(false); // Disable auto-commit
-
-            // 🌟 Check if user already exists
-            String checkUserSql = "SELECT * FROM users WHERE phone_number = ? OR email = ?";
-            try (PreparedStatement checkStmt = conn.prepareStatement(checkUserSql)) {
-                checkStmt.setString(1, phone);
-                checkStmt.setString(2, email);
-                ResultSet rs = checkStmt.executeQuery();
-
-                if (rs.next()) {
-                    System.out.println("⚠️ User already exists: " + email + " or " + phone);
-                    out.println("<script>alert('User already exists!'); window.location='register.html';</script>");
-                    return;
-                }
-            }
-
-            // 🌟 Insert new user
-            String sql = "INSERT INTO users (username, password, name, phone_number, email, role, twilio_account_sid, twilio_auth_token, twilio_sender_id, birthday, job, address, is_valid) " +
-                         "VALUES (?, ?, ?, ?, ?, 'customer', ?, ?, ?, ?, ?, ?, 0)";
-
-            System.out.println("🟢 Preparing SQL statement...");
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, username);
-                stmt.setString(2, password);
-                stmt.setString(3, name);
-                stmt.setString(4, phone);
-                stmt.setString(5, email);
-                stmt.setString(6, twilioSid);
-                stmt.setString(7, twilioToken);
-                stmt.setString(8, twilioSenderId);
-                stmt.setString(9, birthday);
-                stmt.setString(10, job);
-                stmt.setString(11, address);
-
-                int rowsInserted = stmt.executeUpdate();
-                System.out.println("🟢 Rows inserted: " + rowsInserted);
-
-                if (rowsInserted > 0) {
-                    conn.commit(); // 🌟 Commit transaction if insert was successful
-                    System.out.println("✅ User registered successfully.");
-
-                    // 🌟 Send verification SMS (Handled separately to avoid blocking)
-                    try {
-                        Twilio.init(twilioSid, twilioToken);
-                        Message.creator(
-                                new PhoneNumber(phone),
-                                new PhoneNumber(twilioSenderId != null ? twilioSenderId : "YourTwilioNumber"),
-                                "Your verification code: " + verificationCode
-                        ).create();
-                    } catch (Exception e) {
-                        System.err.println("⚠️ Twilio error: " + e.getMessage());
-                    }
-
-                    // 🌟 Show success alert & Redirect
-                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login.html';</script>");
-                } else {
-                    conn.rollback(); // Rollback if insert failed
-                    System.err.println("❌ Error: User not inserted.");
-                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register.html';</script>");
-                }
+                stmt.executeUpdate();
+                response.sendRedirect("/TwilioSMSClient/pages/login.html?success=Account created successfully!");
             }
         } catch (SQLException e) {
             System.err.println("❌ Database error: " + e.getMessage());
