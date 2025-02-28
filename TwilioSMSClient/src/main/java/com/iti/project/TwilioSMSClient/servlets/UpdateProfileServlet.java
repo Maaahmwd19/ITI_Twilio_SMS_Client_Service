@@ -47,7 +47,7 @@ public class UpdateProfileServlet extends HttpServlet {
         currentUser.setEmail(email);
         currentUser.setAccountSid(accountSid);
         currentUser.setAuthToken(authToken);
-        currentUser.setSenderId(senderId);
+        //currentUser.setSenderId(senderId);
         currentUser.setJob(job);
         currentUser.setAddress(address);
 

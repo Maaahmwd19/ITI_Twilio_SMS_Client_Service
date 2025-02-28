@@ -42,7 +42,6 @@ public class UserDAO {
         return user;
 
     }
-
     public static User getUserById(int id) throws SQLException {
         String sql = "SELECT * FROM users WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -67,6 +66,7 @@ public class UserDAO {
         }
         return null;
     }
+
 
     public static User getUserByUsername(String username) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ?";
