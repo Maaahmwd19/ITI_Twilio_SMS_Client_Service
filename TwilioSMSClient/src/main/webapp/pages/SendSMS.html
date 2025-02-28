@@ -18,7 +18,7 @@
                     <li><a href="HomePage.html">Home</a></li>
                     <li><a href="SendSMS.html" class="active">Send Message</a></li>
                     <li><a href="smsHistory.html">SMS History</a></li>
-                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="Profile.jsp">Profile</a></li>
                     <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
                 </ul>
             </nav>
@@ -28,7 +28,7 @@
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form action="/TwilioSMSClient/SendSmsServlet" method="POST">
+        <form action="<%= request.getContextPath() %>/UpdateProfileServlet" method="POST" id="profileForm">
             <h3>Send SMS</h3>
             <label class="lab" for="from">From:</label>
             <input type="text" id="from" name="from" placeholder="Your Twilio Number" required>

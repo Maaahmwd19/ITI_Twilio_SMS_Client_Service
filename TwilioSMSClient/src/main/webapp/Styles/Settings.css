@@ -92,19 +92,18 @@ nav ul li a.active {
 }
 
 /* Settings Container */
+/* Centering the Container */
 .container {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: left;
-    width: 40%;
+    position: relative; /* Use relative positioning */
+    margin-top: 12px; /* Moves the container down */
+    width: 50%;
     background: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 
 /* Field Styles */
 .field {
