@@ -1,28 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("/TwilioSMSClient/SMSHistoryServlet")
-            .then(response => response.json())
-            .then(data => {
-                const tableBody = document.querySelector("#smsTable tbody");
-                tableBody.innerHTML = "";
+fetch("/TwilioSMSClient/SMSHistoryServlet")
+    .then(response => response.json())
+    .then(data => {
+        const tableBody = document.querySelector("#smsTable tbody");
+        tableBody.innerHTML = "";
 
-                data.forEach(sms => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                    <td>${sms.from}</td>
-                    <td>${sms.to}</td>
-                    <td>${sms.body}</td>
-                    <td>${sms.date}</td>
-                    <td class="actions">
-                        <button class="delete-btn" onclick="deleteSMS(this)">Delete</button>
-                    </td>                `;
-                    tableBody.appendChild(row);
-                });
+        console.log("Received SMS data:", data); // Debugging line
 
-                console.log("SMS data loaded successfully.");
-            })
-            .catch(error => console.error("Error fetching SMS data:", error));
-});
+        data.forEach(sms => {
+            console.log("Processing SMS:", sms); // Debugging line
+            
+            const row = document.createElement("tr");
+            row.dataset.smsId = sms.id;  // Ensure SMS ID is stored
+            row.innerHTML = `
+                <td>${sms.from || "N/A"}</td>  
+                <td>${sms.to|| "N/A"}</td>  
+                <td>${sms.body || "No body"}</td>
+                <td>${sms.date || "Unknown date"}</td>
+                <td class="actions">
+                    <button class="delete-btn" onclick="deleteSMS(this)">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
 
+        console.log("SMS data loaded successfully.");
+    })
+    .catch(error => console.error("Error fetching SMS data:", error));
 
 function deleteSMS(button) {
     if (!confirm("Are you sure you want to delete this SMS?")) {
@@ -35,7 +38,6 @@ function deleteSMS(button) {
         return;
     }
 
-    // Extract SMS ID from dataset (Make sure your backend sends this ID)
     const smsId = row.dataset.smsId;
     if (!smsId) {
         console.error("SMS ID is missing!");
@@ -47,16 +49,17 @@ function deleteSMS(button) {
     fetch(`/TwilioSMSClient/DeleteSMSServlet?smsId=${smsId}`, {
         method: "DELETE",
     })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log("SMS deleted successfully.");
-                    row.remove();
-                } else {
-                    alert("Failed to delete SMS: " + data.error);
-                }
-            })
-            .catch(error => console.error("Error deleting SMS:", error));
+    .then(response => response.json())
+    .then(data => {
+        console.log("Delete response:", data);
+        if (data.success) {
+            console.log("SMS deleted successfully.");
+            row.remove();
+        } else {
+            alert("Failed to delete SMS: " + data.error);
+        }
+    })
+    .catch(error => console.error("Error deleting SMS:", error));
 }
 
 
