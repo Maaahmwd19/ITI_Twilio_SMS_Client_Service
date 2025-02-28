@@ -95,6 +95,15 @@ public class UserDAO {
         }
         return null;
     }
+    public static void updateUserValidation(int userId, boolean isValid) throws SQLException {
+        String sql = "UPDATE users SET is_valid = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setBoolean(1, isValid);
+            pstmt.setInt(2, userId);
+            pstmt.executeUpdate();
+        }
+    }
 
    public boolean updateUser(User user) {
         String query = "UPDATE users SET name = ?, phone_number = ?, email = ?, "
