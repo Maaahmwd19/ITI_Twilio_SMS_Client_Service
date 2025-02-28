@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Settings </title>
+        <title>Profile </title>
         <link rel="icon" type="image/png" href="../images/settings.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +17,13 @@
                     <li><a href="HomePage.html">Home</a></li>
                     <li><a href="SendSMS.html">Send Message</a></li>
                     <li><a href="smsHistory.html">SMS History</a></li>
-                    <li><a href="Settings.html" class="active">Settings</a></li>
+                    <li><a href="Profile.jsp" class="active">Profile</a></li>
                     <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
                 </ul>
             </nav>
         </header>
         <div class="container">
-            <h2>Settings</h2>
+            <h2>Profile Info:</h2>
 
             <div class="field">
                 <label>Name:</label>
@@ -63,24 +63,10 @@
 
             <button onclick="enableEditing()">Edit Settings</button>
         </div>
-        <!-- Password Prompt Modal -->
-        <div id="passwordModal" class="modal">
-            <div class="modal-content">
-                <h2>Enter Password</h2>
-                <input type="password" id="passwordInput" placeholder="Enter your password">
-                <div class="modal-buttons">
-                    <button class="confirm" onclick="validatePassword()">Confirm</button>
-                    <button class="cancel" onclick="closeModal()">Cancel</button>
-                </div>
-            </div>
-        </div>
 
-
-
-        <!-- Footer -->
         <footer class="footer">
             <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
         </footer>
-        <script src="../Scripts/Settings.js"></script>
+        <script src="../Scripts/Profile.js"></script>
     </body>
 </html>

@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DeleteUserServlet")
-public class AdminServlet extends HttpServlet {
+public class DeleteUserServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
 
@@ -43,7 +44,6 @@ public class AdminServlet extends HttpServlet {
                     }
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
                 response.sendRedirect("register.html?error=sqlerror");
             }
         } else {
