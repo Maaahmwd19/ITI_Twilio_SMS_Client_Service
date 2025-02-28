@@ -31,9 +31,10 @@ public class UserDAO {
                 user.setRole(rs.getString("role"));
                 user.setPhoneNumber(rs.getString("phone_number"));
                 user.setEmail(rs.getString("email"));
-                user.setAccountSid(rs.getString("account_sid"));
-                user.setAuthToken(rs.getString("auth_token"));
-                user.setSenderId(rs.getString("sender_id"));
+                user.setAccountSid(rs.getString("twilio_account_sid"));
+                user.setAuthToken(rs.getString("twilio_auth_token"));
+                // user.setSenderId(rs.getString("sender_id"));
+                user.setVerified(rs.getInt("is_valid") == 1);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -49,20 +50,18 @@ public class UserDAO {
             pstmt.setInt(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    User user = new User();
-                    user.setId(rs.getInt("id"));
-                    user.setName(rs.getString("name"));
-                    user.setUsername(rs.getString("username"));
-                    user.setBirthday(rs.getDate("birthday"));
-                    user.setPassword(rs.getString("password"));
-                    user.setPhoneNumber(rs.getString("phone_number"));
-                    user.setJob(rs.getString("job"));
-                    user.setEmail(rs.getString("email"));
-                    user.setAddress(rs.getString("address"));
-                    user.setAccountSid(rs.getString("account_sid"));
-                    user.setAuthToken(rs.getString("auth_token"));
-                    user.setSenderId(rs.getString("sender_id"));
-                    user.setRole(rs.getString("role"));
+                User    user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                user.setRole(rs.getString("role"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setEmail(rs.getString("email"));
+                user.setAccountSid(rs.getString("twilio_account_sid"));
+                user.setAuthToken(rs.getString("twilio_auth_token"));
+                // user.setSenderId(rs.getString("sender_id"));
+                user.setVerified(rs.getInt("is_valid") == 1);
                     return user;
                 }
             }
@@ -79,21 +78,32 @@ public class UserDAO {
                     User user = new User();
                     user.setId(rs.getInt("id"));
                     user.setUsername(rs.getString("username"));
-                    user.setName(rs.getString("name"));
-                    user.setBirthday(rs.getDate("birthday"));
                     user.setPassword(rs.getString("password"));
+                    user.setName(rs.getString("name"));
+                    user.setRole(rs.getString("role"));
                     user.setPhoneNumber(rs.getString("phone_number"));
-                    user.setJob(rs.getString("job"));
                     user.setEmail(rs.getString("email"));
-                    user.setAddress(rs.getString("address"));
                     user.setAccountSid(rs.getString("twilio_account_sid"));
                     user.setAuthToken(rs.getString("twilio_auth_token"));
-                    user.setSenderId(rs.getString("twilio_sender_id"));
-                    user.setRole(rs.getString("role"));
+                    // user.setSenderId(rs.getString("sender_id"));
+                    user.setVerified(rs.getInt("is_valid") == 1);
                     return user;
+                    
+
+
                 }
             }
         }
         return null;
-    }    
+    } 
+    
+    public static void updateUserValidation(int userId, boolean isValid) throws SQLException {
+        String sql = "UPDATE users SET is_valid = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setBoolean(1, isValid);
+            pstmt.setInt(2, userId);
+            pstmt.executeUpdate();
+        }
+    }
 }

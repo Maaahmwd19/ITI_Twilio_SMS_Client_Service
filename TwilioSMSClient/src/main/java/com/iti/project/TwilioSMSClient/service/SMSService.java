@@ -10,41 +10,68 @@ import com.iti.project.TwilioSMSClient.model.SMS;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-
-public class SMSService{
+public class SMSService {
     
-    
-     public static int sendVerificationCode(String accountSid, String authToken, String from, String to,int userId) throws ApiException {
+    public static int sendVerificationCode(String accountSid, String authToken, String from, String to, int userId) throws ApiException {
         Random rand = new Random();
-        int verificationCode = 100000 + rand.nextInt(900000);
-
-        String body = "Your verification code is: " + verificationCode;
-        sendSMS(accountSid, authToken, from, to, body,userId);
-
-        return verificationCode;
-    }
-     
-      public static void sendSMS(String accountSid, String authToken, String from, String to, String body,int userId) throws ApiException {
-
         Message message = null;
+        String status = "failed";
+        int verificationCode = 100000 + rand.nextInt(900000);
+        System.out.println("verificationCode: " + verificationCode);
+        String body = "Your verification code is: " + verificationCode;
+
+        // Validate the 'to' phone number format
+        if (!isValidPhoneNumber(to)) {
+            throw new ApiException("Invalid 'To' Phone Number: " + to);
+        }
+
         try {
             Twilio.init(accountSid, authToken);
-             message = Message.creator(
+            message = Message.creator(
                     new PhoneNumber(to),
                     new PhoneNumber(from),
                     body
             ).create();
-            SMSDAO.saveSMS(userId, from, to, body, message.getStatus().toString().toLowerCase());
+            
+            System.out.println("SMS Sent: " + message.getSid());
+            status = message.getStatus().toString().toLowerCase();
         } catch (ApiException e) {
             System.err.println("Failed to send SMS: " + e.getMessage());
             throw e;
-        }finally{
-            if (message != null) {
-                SMSDAO.saveSMS(userId, from, to, body, message.getStatus().toString().toLowerCase());
-            } else {
-                SMSDAO.saveSMS(userId, from, to, body, "failed");
-            }        }
+        } 
+        return verificationCode;
+    }
+     
+    public static void sendSMS(String accountSid, String authToken, String from, String to, String body, int userId) throws ApiException {
+        Message message = null;
+        String status = "failed";
+        
+        // Validate the 'to' phone number format
+        if (!isValidPhoneNumber(to)) {
+            throw new ApiException("Invalid 'To' Phone Number: " + to);
+        }
+
+        try {
+            Twilio.init(accountSid, authToken);
+            message = Message.creator(
+                    new PhoneNumber(to),
+                    new PhoneNumber(from),
+                    body
+            ).create();
+            
+            System.out.println("SMS Sent: " + message.getSid());
+            status = message.getStatus().toString().toLowerCase();
+        } catch (ApiException e) {
+            System.err.println("Failed to send SMS: " + e.getMessage());
+            throw e;
+        } finally {
+            SMSDAO.saveSMS(userId, from, to, body, status);
+        }
+    }
+
+    // Helper method to validate phone number format
+    private static boolean isValidPhoneNumber(String phoneNumber) {
+        // Simple regex to check if the phone number is valid (this can be adjusted as needed)
+        return phoneNumber != null && phoneNumber.matches("\\+?[0-9]{10,15}");
     }
 }
-
-

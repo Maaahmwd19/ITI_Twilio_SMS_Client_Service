@@ -28,18 +28,19 @@
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form action="/TwilioSMSClient/SendSmsServlet" method="POST">
+        <form action="/TwilioSMSClient/SendSmsServlet" method="post">
+            <div id="errorMessage"></div>
             <h3>Send SMS</h3>
             <label class="lab" for="from">From:</label>
-            <input type="text" id="from" name="from" placeholder="Your Twilio Number" required>
+            <input type="text" id="from" name="from_number" placeholder="Your Twilio Number" required>
 
             <label class="lab" for="to">To:</label>
-            <input type="text" id="to" name="to" placeholder="Recipient Number" required>
+            <input type="text" id="to" name="to_number" placeholder="Recipient Number" required>
 
             <label class="lab" for="body">Message:</label>
             <textarea id="body" name="body" placeholder="Your message..." required></textarea>
 
-            <button type="submit">Send SMS</button>
+            <input type="submit" value="Send SMS">
         </form>
 
 
@@ -47,5 +48,14 @@
         <footer class="footer">
             <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
         </footer>
+        <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("error")) {
+                document.getElementById("errorMessage").innerText = params.get("error");
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        };
+    </script>
     </body>
 </html>

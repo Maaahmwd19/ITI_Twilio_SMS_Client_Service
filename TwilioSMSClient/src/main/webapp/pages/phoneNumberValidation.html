@@ -1,13 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Enter Phone Number</title>
-</head>
+<html lang="en">
+    <head>
+        <title>Enter Phone Number</title>
+        <link rel="icon" type="image/png" href="../images/message.png">
+
+        <link rel="stylesheet" href="../Styles/CustomerHome.css">
+        <link rel="stylesheet" href="../Styles/home.css">
+        <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
+
+
+    </head>
+    
+
 <body>
-    <h2>Enter Your Phone Number</h2>
-    <form action="/TwilioSMSClient/SendVerificationCodeServlet" method="post">
-        Phone Number: <input type="text" name="phoneNumber" required><br><br>
-        <input type="submit" value="Send Code">
-    </form>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="SendSMS.html" class="active">Send Message</a></li>
+                <li><a href="smsHistory.html">SMS History</a></li>
+                <li><a href="Settings.html">Settings</a></li>
+                <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Enter Your Phone Number</h2>
+        <form action="/TwilioSMSClient/SendVerificationCodeServlet" method="post">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+            <input type="submit" value="Send Code">
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
+    </footer>
 </body>
 </html>
