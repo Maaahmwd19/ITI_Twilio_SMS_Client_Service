@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
@@ -24,12 +25,14 @@ public class DeleteSMSServlet extends HttpServlet {
      * @param response
      * @throws IOException
      */
+    
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         String smsId = request.getParameter("smsId");
+        System.out.println(smsId);
         if (smsId == null || smsId.isEmpty()) {
             response.getWriter().write("{\"success\": false, \"error\": \"SMS ID is missing\"}");
             return;
@@ -46,6 +49,8 @@ public class DeleteSMSServlet extends HttpServlet {
             } else {
                 response.getWriter().write("{\"success\": false, \"error\": \"SMS not found\"}");
             }
+        } catch (NumberFormatException e) {
+            response.getWriter().write("{\"success\": false, \"error\": \"Invalid SMS ID format\"}");
         } catch (Exception e) {
             response.getWriter().write("{\"success\": false, \"error\": \"Database error\"}");
         }

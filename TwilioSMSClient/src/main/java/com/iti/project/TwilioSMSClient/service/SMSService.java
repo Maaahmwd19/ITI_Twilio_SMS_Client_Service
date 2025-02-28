@@ -60,7 +60,7 @@ public class SMSService {
             ).create();
             
             System.out.println("SMS Sent: " + message.getSid());
-            status = message.getStatus().toString().toLowerCase();
+            status = "success";
         } catch (ApiException e) {
             System.err.println("Failed to send SMS: " + e.getMessage());
             throw e;

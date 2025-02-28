@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.iti.project.TwilioSMSClient.model.*;
 
 @WebServlet("/smsHistory")
 public class SMSHistoryServlet extends HttpServlet {
@@ -22,24 +23,17 @@ public class SMSHistoryServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession(false);
-        String username = (session != null) ? (String) session.getAttribute("username") : null;
+        User user = (User) session.getAttribute("user");
 
-        if (username == null) {
-            response.getWriter().println("[]");
-            return;
-        }
+        Integer userId = user.getId();
 
+       
         try (PrintWriter out = response.getWriter();
              Connection conn = DatabaseUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(
-                 "SELECT s.id, u1.username AS sender, u2.username AS receiver, s.body AS message_body, s.date AS sent_date, s.status " +
-                 "FROM sms s " +
-                 "JOIN users u1 ON s.from_number = u1.phone_number " +
-                 "JOIN users u2 ON s.to_number = u2.phone_number " +
-                 "WHERE u1.user_id = ? OR u2.user_id = ?")) {
+                 "select * from sms where user_id = ?")) {
 
-            ps.setString(1, username);
-            ps.setString(2, username);
+            ps.setInt(1, userId);
 
             try (ResultSet rs = ps.executeQuery()) {
                 StringBuilder json = new StringBuilder("[");
@@ -48,11 +42,12 @@ public class SMSHistoryServlet extends HttpServlet {
                 while (rs.next()) {
                     if (!first) json.append(",");
                     json.append("{");
+                    System.out.println(rs.getInt("id"));
                     json.append("\"id\":\"").append(rs.getInt("id")).append("\", ");
-                    json.append("\"from\":\"").append(rs.getString("sender")).append("\", ");
-                    json.append("\"to\":\"").append(rs.getString("receiver")).append("\", ");
-                    json.append("\"body\":\"").append(rs.getString("message_body")).append("\", ");
-                    json.append("\"date\":\"").append(rs.getString("sent_date")).append("\", ");
+                    json.append("\"from\":\"").append(rs.getString("from_number")).append("\", ");
+                    json.append("\"to\":\"").append(rs.getString("to_number")).append("\", ");
+                    json.append("\"body\":\"").append(rs.getString("body")).append("\", ");
+                    json.append("\"date\":\"").append(rs.getDate("date")).append("\", ");
                     json.append("\"status\":\"").append(rs.getString("status")).append("\"");
                     json.append("}");
                     first = false;
