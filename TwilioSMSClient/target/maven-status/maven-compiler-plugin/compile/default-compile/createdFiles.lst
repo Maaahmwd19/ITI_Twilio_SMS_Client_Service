@@ -1,8 +1,10 @@
 com\iti\project\TwilioSMSClient\servlets\SendVerificationCodeServlet.class
 com\iti\project\TwilioSMSClient\servlets\VerifyCodeServlet.class
 com\iti\project\TwilioSMSClient\service\SMSService.class
+com\iti\project\TwilioSMSClient\servlets\DashboardServlet.class
 com\iti\project\TwilioSMSClient\servlets\RegistrationServlet.class
 com\iti\project\TwilioSMSClient\model\SMS.class
+com\iti\project\TwilioSMSClient\servlets\AdminProfileServlet.class
 com\iti\project\TwilioSMSClient\servlets\CustomerServlet.class
 com\iti\project\TwilioSMSClient\servlets\LogoutServlet.class
 com\iti\project\TwilioSMSClient\dao\SMSDAO.class
