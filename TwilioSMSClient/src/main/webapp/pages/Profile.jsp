@@ -61,12 +61,24 @@
             </nav>
         </header>
 
+        <%
+            String errorMessage = (String) request.getAttribute("error");
+            if (errorMessage != null) {
+        %>
+        <div id="error-message" style="color: red; font-weight: bold;">
+            <%= errorMessage%>
+        </div>
+        <%
+            }
+        %>
+
         <div class="container">
             <h2>User Profile</h2>
 
+
             <!-- Profile Form -->
             <form action="<%= request.getContextPath()%>/UpdateProfileServlet" method="POST" id="profileForm">
-                
+
                 <div class="form-row">
                     <div class="field">
                         <label>Name:</label>
@@ -147,19 +159,19 @@
         <script src="../Scripts/Profile.js"></script>
 
         <script>
-            // Function to enable editing the profile
-            function enableEditing() {
-                let fields = ['name', 'username', 'phone', 'email', 'twilioAccountSid', 'twilioAuthToken', 
-                              'twilioSenderId', 'birthday', 'job', 'address'];
-                fields.forEach(field => document.getElementById(field).removeAttribute('readonly'));
+                    // Function to enable editing the profile
+                    function enableEditing() {
+                        let fields = ['name', 'username', 'phone', 'email', 'twilioAccountSid', 'twilioAuthToken',
+                            'twilioSenderId', 'birthday', 'job', 'address'];
+                        fields.forEach(field => document.getElementById(field).removeAttribute('readonly'));
 
-                // Show password field and save button
-                document.getElementById('passwordField').style.display = 'flex';
-                document.getElementById('saveButton').style.display = 'block';
+                        // Show password field and save button
+                        document.getElementById('passwordField').style.display = 'flex';
+                        document.getElementById('saveButton').style.display = 'block';
 
-                // Hide the Edit button
-                document.getElementById('editButton').style.display = 'none';
-            }
+                        // Hide the Edit button
+                        document.getElementById('editButton').style.display = 'none';
+                    }
         </script>
 
     </body>

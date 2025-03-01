@@ -96,13 +96,12 @@ public class UserDAO {
         return null;
     }
 
-   public boolean updateUser(User user) {
+    public boolean updateUser(User user) {
         String query = "UPDATE users SET name = ?, phone_number = ?, email = ?, "
                 + "twilio_account_sid = ?, twilio_auth_token = ?, twilio_sender_id = ?, "
                 + "birthday = ?, job = ?, address = ? WHERE username = ?";
 
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
 
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getPhoneNumber());
@@ -123,4 +122,34 @@ public class UserDAO {
         }
         return false;
     }
+
+    public boolean isEmailTaken(String email, int id) {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ? AND id != ?";
+        try (Connection conn = DatabaseUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, email);
+            pstmt.setInt(2, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true; // Email exists for another user
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false; // Email is available
+    }
+
+    public boolean isPhoneTaken(String phone, int id) {
+        String query = "SELECT COUNT(*) FROM users WHERE phone_number = ? AND id != ?";
+        try (Connection conn = DatabaseUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, phone);
+            pstmt.setInt(2, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true; // Phone number exists for another user
+            }
+        } catch (SQLException e) {
+        }
+        return false; // Phone number is available
+    }
+
 }

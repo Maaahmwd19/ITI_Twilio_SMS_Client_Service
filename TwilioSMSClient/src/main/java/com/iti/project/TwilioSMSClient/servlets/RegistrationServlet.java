@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +18,6 @@ import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import com.iti.project.TwilioSMSClient.util.DatabaseUtil;
 
-@WebServlet("/register")
 public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -107,17 +105,17 @@ public class RegistrationServlet extends HttpServlet {
                     }
 
                     // 🌟 Show success alert & Redirect
-                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login.html';</script>");
+                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login1.html';</script>");
                 } else {
                     conn.rollback(); // Rollback if insert failed
                     System.err.println("❌ Error: User not inserted.");
-                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register.html';</script>");
+                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register1.html';</script>");
                 }
             }
         } catch (SQLException e) {
             System.err.println("❌ Database error: " + e.getMessage());
             e.printStackTrace();
-            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register.html';</script>");
+            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
         }
     }
 }
