@@ -16,6 +16,6 @@ public class LogoutServlet extends HttpServlet {
             System.out.println("🔴 Invalidating session: " + session.getId());
             session.invalidate();
         }
-        response.sendRedirect("/TwilioSMSClient/pages/login.html");
+        response.sendRedirect("/TwilioSMSClient/pages/login1.html");
     }
 }

@@ -33,6 +33,6 @@ public class AdminServlet extends HttpServlet {
         }
 
         request.setAttribute("users", users);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
+        request.getRequestDispatcher("adminHome.jsp").forward(request, response);
     }
 }

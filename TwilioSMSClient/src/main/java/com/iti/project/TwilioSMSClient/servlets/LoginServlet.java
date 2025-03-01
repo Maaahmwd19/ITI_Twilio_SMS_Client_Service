@@ -21,19 +21,24 @@ public class LoginServlet extends HttpServlet {
 
         try {
             User user = UserDAO.getUserByUsername(username);
-            if (user != null && user.getPassword().equals(password)) {
+            if (user != null && user.getPassword().equals(password)) { // Replace with hashed password check
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", user);
                 session.setAttribute("username", user.getUsername());
+                session.setAttribute("role", user.getRole());
 
-                response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                if ("admin".equalsIgnoreCase(user.getRole())) {
+                    response.sendRedirect("/TwilioSMSClient/pages/adminHome.jsp");
+                } else {
+                    response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                }
             } else {
                 request.setAttribute("errorMessage", "Invalid username or password.");
                 request.getRequestDispatcher("/TwilioSMSClient/pages/login.html").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.getWriter().write(e.getMessage());
+            response.getWriter().write("Database error: " + e.getMessage());
         }
     }
 }
