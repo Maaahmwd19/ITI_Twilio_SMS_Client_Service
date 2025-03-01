@@ -35,7 +35,7 @@ public class SendSmsServlet extends HttpServlet {
 
         if (to == null || to.isEmpty() || body == null || body.isEmpty()) {
             response.getWriter().write("Please enter both recipient's phone number and message body.");
-           response.sendRedirect("customerHome.html");
+           response.sendRedirect("/pages/HomaPage.html");
 
         }
         int userId = (int) session.getAttribute("userId");
@@ -47,7 +47,7 @@ public class SendSmsServlet extends HttpServlet {
         } catch (ApiException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Failed to send SMS: " + e.getMessage());
-             response.sendRedirect("pages/customerHome.html");
+             response.sendRedirect("/pages/HomaPage.html");
 
         }
     }   

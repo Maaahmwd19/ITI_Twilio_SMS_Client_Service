@@ -15,7 +15,7 @@ public class ProfileServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute("user") == null) {
-            response.sendRedirect("login.html");
+            response.sendRedirect("/TwilioSMSClient/pages/login1.html");
             return;
         }
 

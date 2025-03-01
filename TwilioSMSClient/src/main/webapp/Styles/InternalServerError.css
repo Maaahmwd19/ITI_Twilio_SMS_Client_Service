@@ -1,0 +1,136 @@
+ /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #dc3545, #6f42c1); 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Shapes */
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            width: 300%;
+            height: 300%;
+            background: #dc3545;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: moveShape 10s ease-in-out infinite;
+        }
+        body::after {
+            background: #6f42c1;
+            animation: moveShape2 15s ease-in-out infinite;
+            opacity: 0.15;
+        }
+
+        /* Keyframes for Shapes Animation */
+        @keyframes moveShape {
+            0% { top: -50%; left: -50%; }
+            50% { top: 100%; left: 50%; }
+            100% { top: -50%; left: -50%; }
+        }
+
+        @keyframes moveShape2 {
+            0% { top: 50%; left: 0; }
+            50% { top: -50%; left: 100%; }
+            100% { top: 50%; left: 0; }
+        }
+
+        /* Error Page Styles */
+        .error-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .error-code {
+            font-size: 180px;
+            color: white;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+            margin: 0;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .error-message {
+            font-size: 40px;
+            color: white;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            font-family: Grechen Fuemen;
+            margin: 20px 0;
+        }
+
+        .error-description {
+            font-size: 20px;
+            color: white;
+            margin: 10px 0;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .error-icon {
+            font-size: 60px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .back-home {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .back-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .search-box {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background: linear-gradient(to right, #6f42c1, #dc3545);
+            opacity: 80%;
+            color: black;
+            box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            z-index: 1;
+        }

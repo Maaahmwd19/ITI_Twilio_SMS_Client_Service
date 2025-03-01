@@ -49,7 +49,7 @@ public class RegistrationServlet extends HttpServlet {
         try (Connection conn = DatabaseUtil.getConnection()) {
             if (conn == null) {
                 System.err.println("❌ ERROR: Database connection failed!");
-                out.println("<script>alert('Database connection error.'); window.location='register.html';</script>");
+                out.println("<script>alert('Database connection error.'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
                 return;
             }
 
@@ -64,7 +64,7 @@ public class RegistrationServlet extends HttpServlet {
 
                 if (rs.next()) {
                     System.out.println("⚠️ User already exists: " + email + " or " + phone);
-                    out.println("<script>alert('User already exists!'); window.location='register.html';</script>");
+                    out.println("<script>alert('User already exists!'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
                     return;
                 }
             }
@@ -107,17 +107,17 @@ public class RegistrationServlet extends HttpServlet {
                     }
 
                     // 🌟 Show success alert & Redirect
-                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login.html';</script>");
+                    out.println("<script>alert('Registration successful!'); window.location='/TwilioSMSClient/pages/login1.html';</script>");
                 } else {
                     conn.rollback(); // Rollback if insert failed
                     System.err.println("❌ Error: User not inserted.");
-                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='register.html';</script>");
+                    out.println("<script>alert('Error occurred while registering. Please try again.'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
                 }
             }
         } catch (SQLException e) {
             System.err.println("❌ Database error: " + e.getMessage());
             e.printStackTrace();
-            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register.html';</script>");
+            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
         }
     }
 }

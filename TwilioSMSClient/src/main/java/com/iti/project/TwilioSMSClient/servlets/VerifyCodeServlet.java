@@ -24,7 +24,7 @@ public class VerifyCodeServlet extends HttpServlet {
         if (expectedCode != null && userEnteredCode != null && expectedCode.toString().equals(userEnteredCode)) {
             session.removeAttribute("verificationCode");
             session.removeAttribute("attempts");
-            response.sendRedirect("/TwilioSMSClient/pages/customerHome.html");
+            response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
         } else {
             attempts++;
             session.setAttribute("attempts", attempts);

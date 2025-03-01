@@ -1,6 +1,6 @@
+com/iti/project/TwilioSMSClient/servlets/DeleteUserServlet.class
 com/iti/project/TwilioSMSClient/util/DatabaseUtil.class
 com/iti/project/TwilioSMSClient/servlets/VerifyCodeServlet.class
-com/iti/project/TwilioSMSClient/servlet/DeleteUserServlet.class
 java/time/Date.class
 com/iti/project/TwilioSMSClient/servlets/UserSessionServlet.class
 com/iti/project/TwilioSMSClient/dao/SMSDAO.class

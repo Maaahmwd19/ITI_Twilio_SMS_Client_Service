@@ -80,11 +80,11 @@
 
      <error-page>
          <error-code>404</error-code>
-        <location>pageNotFound.html</location>
+        <location>/pages/pageNotFound.html</location>
     </error-page>
     
       <error-page>
            <error-code>500</error-code>
-        <location>internalServerError.html</location>
+        <location>/pages/internalServerError.html</location>
     </error-page>
 </web-app>
