@@ -12,18 +12,18 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 
+
 public class UpdateProfileServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         User currentUser = (User) session.getAttribute("user");
 
         if (currentUser == null) {
-            response.sendRedirect("/pages/login1.html");
+            response.sendRedirect(request.getContextPath() + "/pages/login1.html");
             return;
         }
 
@@ -33,11 +33,11 @@ public class UpdateProfileServlet extends HttpServlet {
         String email = request.getParameter("email");
         String accountSid = request.getParameter("twilio_account_sid");
         String authToken = request.getParameter("twilio_auth_token");
-        String senderId = request.getParameter("twilio_sender_id");
+        // Removed getSenderId - no longer needed
         String birthdayStr = request.getParameter("birthday");
         String job = request.getParameter("job");
         String address = request.getParameter("address");
-
+        
         // Debugging: Print values received
         System.out.println("Updating user: " + name);
 
@@ -47,7 +47,7 @@ public class UpdateProfileServlet extends HttpServlet {
         currentUser.setEmail(email);
         currentUser.setAccountSid(accountSid);
         currentUser.setAuthToken(authToken);
-        //currentUser.setSenderId(senderId);
+        // Removed setSenderId - no longer needed
         currentUser.setJob(job);
         currentUser.setAddress(address);
 
@@ -65,11 +65,13 @@ public class UpdateProfileServlet extends HttpServlet {
         boolean updateSuccess = userDAO.updateUser(currentUser);
 
         if (updateSuccess) {
-            session.setAttribute("user", currentUser); // Update session
-            response.sendRedirect("pages/Profile.jsp"); // ✅ Redirect to Profile.jsp
+            session.setAttribute("user", currentUser); // Update 
+            request.setAttribute("successMessage", "Profile updated successfully.");
+
+            response.sendRedirect(request.getContextPath() + "/ProfileServlet");
         } else {
-            request.setAttribute("error", "Profile update failed.");
-            request.getRequestDispatcher("pages/Profile.jsp").forward(request, response);
+            request.setAttribute("errorMessage", "Profile update failed.");
+            response.sendRedirect(request.getContextPath() + "/ProfileServlet");
         }
     }
 }

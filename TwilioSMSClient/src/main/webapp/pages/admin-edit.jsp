@@ -206,19 +206,18 @@
         .btn:hover { opacity: 0.8; }
         /* Footer Styling */
         .footer {
-            width: 100%;
-            background: linear-gradient(to right, #e47b13, #579ce6);
-            opacity: 80%;
-            color: black;
-            box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            padding: 15px 0;
-            /* position: fixed; */
-            bottom: 0;
-            left: 0;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
+    width: 100%;
+    background: linear-gradient(to right, #e47b13, #579ce6);
+    opacity: 80%;
+    color: black;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 15px 0;
+    bottom: 0;
+    left: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
         
         /* Responsive Design */
         @media screen and (max-width: 768px) {
@@ -246,7 +245,7 @@
             <ul>
                 <li><a href="/TwilioSMSClient/pages/AdminHomePage.html" >Home</a></li>
                 <li><a href="/TwilioSMSClient/admin?action=listCustomers" >View Customers</a></li>
-                <li><a href="/TwilioSMSClient/DashBoardServlet">Dashboard</a></li>
+                <li><a href="/TwilioSMSClient/dashboard">DashBoard</a></li>
                 <li><a href="/TwilioSMSClient/adminprofile" class="active">Profile</a></li>
                 <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
             </ul>
@@ -255,7 +254,6 @@
 
     <div class="container">
         <h1>Admin Profile</h1>
-<!-- Add this right after opening the container div -->
         <c:if test="${not empty errorMessage}">
             <div style="background-color: #ffdddd; color: #ff0000; padding: 10px; margin-bottom: 20px; border-radius: 5px;">
                 ${errorMessage}

@@ -33,9 +33,9 @@ public class SendVerificationCodeServlet extends HttpServlet {
         // String accountSid = user.getAccountSid();
         // String authToken = user.getAuthToken();
         //String from = user.getSenderId();
-        String accountSid="AC7cbbc2b8981f0b0fa03fcdf812ec6450";
-        String authToken="096d1e934c97b594c387c0feff685a26";
-        String from="+16203901213";
+        String accountSid=user.getAccountSid();
+        String authToken=user.getAuthToken();
+        String from=user.getPhoneNumber();
         String phoneNumber = request.getParameter("phoneNumber");
         int verificationCode = SMSService.sendVerificationCode(accountSid, authToken, from, phoneNumber, userId);
         session.setAttribute("verificationCode", verificationCode);

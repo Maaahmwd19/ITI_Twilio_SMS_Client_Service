@@ -38,11 +38,11 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
                     }
                 } else {
-                    response.sendRedirect("/TwilioSMSClient/pages/login.html?error=invalid_credentials");
+                    response.sendRedirect("/TwilioSMSClient/pages/login1.html?error=invalid_credentials");
                 }
             } else {
-                request.setAttribute("errorMessage", "Invalid username or password.");
-                request.getRequestDispatcher("/TwilioSMSClient/pages/login1.html").forward(request, response);
+                // request.setAttribute("errorMessage", "Invalid username or password.");
+                response.sendRedirect("/TwilioSMSClient/pages/login1.html?errorMessage=invalid_credentials");
             }
         } catch (SQLException e) {
             e.printStackTrace();

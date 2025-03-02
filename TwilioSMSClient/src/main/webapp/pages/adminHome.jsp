@@ -174,7 +174,7 @@ tr:hover {
                 <li><a href="/TwilioSMSClient/pages/AdminHomePage.html" >Home</a></li>
                 <li><a href="/TwilioSMSClient/admin?action=listCustomers" class="active">View Customers</a></li>
                 <li><a href="/TwilioSMSClient/dashboard">DashBoard</a></li>
-                <li><a href="Settings.html">Settings</a></li>
+                <li><a href="/TwilioSMSClient/adminprofile">Profile</a></li>
                 <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
             </ul>
         </nav>

@@ -226,7 +226,6 @@ nav ul li a.active {
     left: 0;
     font-size: 1.1em;
     font-weight: bold;
-    position: relative;
 }
 
 /* Responsive Design */
@@ -261,7 +260,7 @@ nav ul li a.active {
                     <li><a href="/TwilioSMSClient/pages/AdminHomePage.html" >Home</a></li>
                     <li><a href="/TwilioSMSClient/admin?action=listCustomers" >View Customers</a></li>
                     <li><a href="/TwilioSMSClient/dashboard" class="active">DashBoard</a></li>
-                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="/TwilioSMSClient/adminprofile" >Profile</a></li>
                     <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
                 </ul>
             </nav>

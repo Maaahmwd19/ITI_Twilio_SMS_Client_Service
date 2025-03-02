@@ -71,7 +71,7 @@ public class RegistrationServlet extends HttpServlet {
                 stmt.setString(10, twilioToken);
 
                 stmt.executeUpdate();
-                response.sendRedirect("/TwilioSMSClient/pages/login.html?success=Account created successfully!");
+                response.sendRedirect("/TwilioSMSClient/pages/login1.html?success=Account created successfully!");
             }
         } catch (SQLException e) {
             System.err.println("❌ Database error: " + e.getMessage());

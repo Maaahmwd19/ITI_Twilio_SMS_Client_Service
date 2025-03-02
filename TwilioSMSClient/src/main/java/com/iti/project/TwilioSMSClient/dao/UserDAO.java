@@ -35,6 +35,9 @@ public class UserDAO {
                 user.setAuthToken(rs.getString("twilio_auth_token"));
                 // user.setSenderId(rs.getString("sender_id"));
                 user.setVerified(rs.getInt("is_valid") == 1);
+                user.setBirthday(rs.getDate("birthday"));
+                user.setJob(rs.getString("job"));
+                user.setAddress(rs.getString("address"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,7 +110,7 @@ public class UserDAO {
 
    public boolean updateUser(User user) {
         String query = "UPDATE users SET name = ?, phone_number = ?, email = ?, "
-                + "twilio_account_sid = ?, twilio_auth_token = ?, twilio_sender_id = ?, "
+                + "twilio_account_sid = ?, twilio_auth_token = ?, "
                 + "birthday = ?, job = ?, address = ? WHERE username = ?";
 
         try (Connection conn = DatabaseUtil.getConnection();
@@ -118,11 +121,10 @@ public class UserDAO {
             pstmt.setString(3, user.getEmail());
             pstmt.setString(4, user.getAccountSid());
             pstmt.setString(5, user.getAuthToken());
-            pstmt.setString(6, user.getSenderId());
-            pstmt.setDate(7, (Date) user.getBirthday());
-            pstmt.setString(8, user.getJob());
-            pstmt.setString(9, user.getAddress());
-            pstmt.setString(10, user.getUsername());
+            pstmt.setDate(6, (Date) user.getBirthday());
+            pstmt.setString(7, user.getJob());
+            pstmt.setString(8, user.getAddress());
+            pstmt.setString(9, user.getUsername());
 
             int rowsUpdated = pstmt.executeUpdate();
             return rowsUpdated > 0; // Return true if at least one row was updated

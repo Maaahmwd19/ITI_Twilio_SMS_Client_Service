@@ -83,7 +83,6 @@ public class AdminProfileServlet extends HttpServlet {
                     sqlBirthday = java.sql.Date.valueOf(birthday);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
-                    // Handle invalid date format
                 }
             }
             
@@ -103,7 +102,6 @@ public class AdminProfileServlet extends HttpServlet {
                     pstmt.setString(5, twilioAccountSid);
                     pstmt.setString(6, twilioAuthToken);
                     
-                    // Set the date properly
                     if (sqlBirthday != null) {
                         pstmt.setDate(7, sqlBirthday);
                     } else {
@@ -126,14 +124,12 @@ public class AdminProfileServlet extends HttpServlet {
                 return;
             }
             
-            // Add success message to session for display after redirect
             HttpSession session = request.getSession();
             session.setAttribute("successMessage", "Profile updated successfully");
             
             response.sendRedirect(request.getContextPath() + "/adminprofile");
         } catch (Exception e) {
             e.printStackTrace();
-            // General error handling
             response.getWriter().println("Error: " + e.getMessage());
         }
     }
