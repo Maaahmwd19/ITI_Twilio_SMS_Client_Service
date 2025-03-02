@@ -17,6 +17,7 @@ public class User {
     private String authToken;
     private String senderId;
     private String role;
+    private boolean isVerified;
 
     // Getters and Setters
     public int getId() { return id; }
@@ -52,9 +53,13 @@ public class User {
     public String getAuthToken() { return authToken; }
     public void setAuthToken(String authToken) { this.authToken = authToken; }
 
-    public String getSenderId() { return senderId; }
-    public void setSenderId(String senderId) { this.senderId = senderId; }
+    // public String getSenderId() { return senderId; }
+    // public void setSenderId(String senderId) { this.senderId = senderId; }
 
+    public boolean isVerified() { return isVerified; }
+    public void setVerified(boolean isVerified) { this.isVerified = isVerified; }
+
+    public String getSenderId() { return senderId; }
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 }

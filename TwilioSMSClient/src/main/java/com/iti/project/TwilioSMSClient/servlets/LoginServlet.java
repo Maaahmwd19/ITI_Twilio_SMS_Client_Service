@@ -15,30 +15,38 @@ import java.sql.SQLException;
 @WebServlet("/TwilioSMSClient/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         try {
-            User user = UserDAO.getUserByUsername(username);
-            if (user != null && user.getPassword().equals(password)) { // Replace with hashed password check
-                HttpSession session = request.getSession(true);
-                session.setAttribute("user", user);
-                session.setAttribute("username", user.getUsername());
-                session.setAttribute("role", user.getRole());
+            User user = UserDAO.validateUser(username, password);
+            if (user != null) {
+                // Check if the password matches
+                if (user.getPassword().equals(password)) {
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("user", user);
+                    System.out.println("User: " + user);
 
-                if ("admin".equalsIgnoreCase(user.getRole())) {
-                    response.sendRedirect("/TwilioSMSClient/pages/adminHome.jsp");
+                    session.setAttribute("username", user.getUsername()); 
+                    System.out.println("username: " + user.getUsername());
+                    if(user.getRole().equals("admin")){
+                        response.sendRedirect("/TwilioSMSClient/pages/AdminHomePage.html");
+                    }
+                    else{
+                        response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                    }
                 } else {
-                    response.sendRedirect("/TwilioSMSClient/pages/HomePage.html");
+                    response.sendRedirect("/TwilioSMSClient/pages/login1.html?error=invalid_credentials");
                 }
             } else {
-                request.setAttribute("errorMessage", "Invalid username or password.");
-                request.getRequestDispatcher("/TwilioSMSClient/pages/login.html").forward(request, response);
+                // request.setAttribute("errorMessage", "Invalid username or password.");
+                response.sendRedirect("/TwilioSMSClient/pages/login1.html?errorMessage=invalid_credentials");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.getWriter().write("Database error: " + e.getMessage());
+            response.getWriter().write("{\"success\": false, \"error\": \"" + e.getMessage() + "\"}");
         }
     }
 }

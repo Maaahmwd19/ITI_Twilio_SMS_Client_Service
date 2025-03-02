@@ -31,9 +31,13 @@ public class UserDAO {
                 user.setRole(rs.getString("role"));
                 user.setPhoneNumber(rs.getString("phone_number"));
                 user.setEmail(rs.getString("email"));
-                user.setAccountSid(rs.getString("account_sid"));
-                user.setAuthToken(rs.getString("auth_token"));
-                user.setSenderId(rs.getString("sender_id"));
+                user.setAccountSid(rs.getString("twilio_account_sid"));
+                user.setAuthToken(rs.getString("twilio_auth_token"));
+                // user.setSenderId(rs.getString("sender_id"));
+                user.setVerified(rs.getInt("is_valid") == 1);
+                user.setBirthday(rs.getDate("birthday"));
+                user.setJob(rs.getString("job"));
+                user.setAddress(rs.getString("address"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,33 +45,31 @@ public class UserDAO {
         return user;
 
     }
-
     public static User getUserById(int id) throws SQLException {
         String sql = "SELECT * FROM users WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    User user = new User();
-                    user.setId(rs.getInt("id"));
-                    user.setName(rs.getString("name"));
-                    user.setUsername(rs.getString("username"));
-                    user.setBirthday(rs.getDate("birthday"));
-                    user.setPassword(rs.getString("password"));
-                    user.setPhoneNumber(rs.getString("phone_number"));
-                    user.setJob(rs.getString("job"));
-                    user.setEmail(rs.getString("email"));
-                    user.setAddress(rs.getString("address"));
-                    user.setAccountSid(rs.getString("account_sid"));
-                    user.setAuthToken(rs.getString("auth_token"));
-                    user.setSenderId(rs.getString("sender_id"));
-                    user.setRole(rs.getString("role"));
+                User    user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                user.setRole(rs.getString("role"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setEmail(rs.getString("email"));
+                user.setAccountSid(rs.getString("twilio_account_sid"));
+                user.setAuthToken(rs.getString("twilio_auth_token"));
+                // user.setSenderId(rs.getString("sender_id"));
+                user.setVerified(rs.getInt("is_valid") == 1);
                     return user;
                 }
             }
         }
         return null;
     }
+
 
     public static User getUserByUsername(String username) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ?";
@@ -78,27 +80,37 @@ public class UserDAO {
                     User user = new User();
                     user.setId(rs.getInt("id"));
                     user.setUsername(rs.getString("username"));
-                    user.setName(rs.getString("name"));
-                    user.setBirthday(rs.getDate("birthday"));
                     user.setPassword(rs.getString("password"));
+                    user.setName(rs.getString("name"));
+                    user.setRole(rs.getString("role"));
                     user.setPhoneNumber(rs.getString("phone_number"));
-                    user.setJob(rs.getString("job"));
                     user.setEmail(rs.getString("email"));
-                    user.setAddress(rs.getString("address"));
                     user.setAccountSid(rs.getString("twilio_account_sid"));
                     user.setAuthToken(rs.getString("twilio_auth_token"));
-                    user.setSenderId(rs.getString("twilio_sender_id"));
-                    user.setRole(rs.getString("role"));
+                    // user.setSenderId(rs.getString("sender_id"));
+                    user.setVerified(rs.getInt("is_valid") == 1);
                     return user;
+                    
+
+
                 }
             }
         }
         return null;
     }
+    public static void updateUserValidation(int userId, boolean isValid) throws SQLException {
+        String sql = "UPDATE users SET is_valid = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setBoolean(1, isValid);
+            pstmt.setInt(2, userId);
+            pstmt.executeUpdate();
+        }
+    }
 
    public boolean updateUser(User user) {
         String query = "UPDATE users SET name = ?, phone_number = ?, email = ?, "
-                + "twilio_account_sid = ?, twilio_auth_token = ?, twilio_sender_id = ?, "
+                + "twilio_account_sid = ?, twilio_auth_token = ?, "
                 + "birthday = ?, job = ?, address = ? WHERE username = ?";
 
         try (Connection conn = DatabaseUtil.getConnection();
@@ -109,11 +121,10 @@ public class UserDAO {
             pstmt.setString(3, user.getEmail());
             pstmt.setString(4, user.getAccountSid());
             pstmt.setString(5, user.getAuthToken());
-            pstmt.setString(6, user.getSenderId());
-            pstmt.setDate(7, (Date) user.getBirthday());
-            pstmt.setString(8, user.getJob());
-            pstmt.setString(9, user.getAddress());
-            pstmt.setString(10, user.getUsername());
+            pstmt.setDate(6, (Date) user.getBirthday());
+            pstmt.setString(7, user.getJob());
+            pstmt.setString(8, user.getAddress());
+            pstmt.setString(9, user.getUsername());
 
             int rowsUpdated = pstmt.executeUpdate();
             return rowsUpdated > 0; // Return true if at least one row was updated
