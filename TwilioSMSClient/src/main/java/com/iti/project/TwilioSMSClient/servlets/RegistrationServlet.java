@@ -76,7 +76,7 @@ public class RegistrationServlet extends HttpServlet {
         } catch (SQLException e) {
             System.err.println("❌ Database error: " + e.getMessage());
             e.printStackTrace();
-            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register.html';</script>");
+            out.println("<script>alert('Database error: " + e.getMessage() + "'); window.location='/TwilioSMSClient/pages/register1.html';</script>");
         }
     }
 }

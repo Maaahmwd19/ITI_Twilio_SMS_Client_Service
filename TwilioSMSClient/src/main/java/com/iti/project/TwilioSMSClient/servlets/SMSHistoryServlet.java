@@ -62,7 +62,6 @@ public class SMSHistoryServlet extends HttpServlet {
                 out.println(json.toString());
             }
         } catch (Exception e) {
-            e.printStackTrace();
             response.getWriter().println("[]");
         }
     }

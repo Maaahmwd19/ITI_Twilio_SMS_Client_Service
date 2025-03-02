@@ -23,7 +23,7 @@ public class UpdateProfileServlet extends HttpServlet {
         User currentUser = (User) session.getAttribute("user");
 
         if (currentUser == null) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("/pages/login1.html");
             return;
         }
 

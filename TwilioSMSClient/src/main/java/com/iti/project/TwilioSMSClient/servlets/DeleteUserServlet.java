@@ -37,17 +37,17 @@ public class DeleteUserServlet extends HttpServlet {
 
                     if (rowsAffected > 0) {
                         conn.commit(); 
-                        response.sendRedirect("register.html?success=true");
+                        response.sendRedirect("/pages/register1.html?success=true");
                     } else {
                         conn.rollback();  
-                        response.sendRedirect("adminHome.html?error=notfound");
+                        response.sendRedirect("/pages/adminHome.html?error=notfound");
                     }
                 }
             } catch (SQLException e) {
-                response.sendRedirect("register.html?error=sqlerror");
+                response.sendRedirect("/pages/register1.html?error=sqlerror");
             }
         } else {
-            response.sendRedirect("register.html?error=invalidusername");
+            response.sendRedirect("/pages/register2.html?error=invalidusername");
         }
     }
 }

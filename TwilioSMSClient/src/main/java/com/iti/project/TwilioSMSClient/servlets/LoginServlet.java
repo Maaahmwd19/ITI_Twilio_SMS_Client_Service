@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("/TwilioSMSClient/pages/login.html?error=invalid_credentials");
                 }
             } else {
-                // Redirect to login page if user is not found
-                response.sendRedirect("/TwilioSMSClient/pages/login.html?error=user_not_found");
+                request.setAttribute("errorMessage", "Invalid username or password.");
+                request.getRequestDispatcher("/TwilioSMSClient/pages/login1.html").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
