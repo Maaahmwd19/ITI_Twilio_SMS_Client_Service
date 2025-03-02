@@ -65,6 +65,10 @@ public class SMSService {
             System.err.println("Failed to send SMS: " + e.getMessage());
             throw e;
         } finally {
+            if(status !="success" || status !="delivered" || status !="sent")
+                status = "failed";
+            else
+                status = "success";
             SMSDAO.saveSMS(userId, from, to, body, status);
         }
     }

@@ -15,6 +15,11 @@
         <jakartaee>8.0.0</jakartaee>
     </properties>
     <dependencies>
+    <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
