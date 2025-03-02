@@ -89,7 +89,7 @@ sudo mysql_secure_installation
 Download the project from your Git repository:
 ```bash
 git clone https://github.com/Maaahmwd19/ITI_Twilio_SMS_Client_Service.git
-cd twilio-sms-client
+cd TwilioSMSClient
 ```
 
 ---
