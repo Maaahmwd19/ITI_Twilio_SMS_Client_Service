@@ -244,3 +244,17 @@ nav ul li a.active {
     z-index: 1;
 }
 
+        .delete-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #cc0000;
+        }

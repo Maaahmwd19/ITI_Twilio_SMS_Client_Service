@@ -19,6 +19,7 @@ import com.iti.project.TwilioSMSClient.model.User;
 @WebServlet(name = "SendSmsServlet", urlPatterns = {"/SendSmsServlet"})
 public class SendSmsServlet extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("user");

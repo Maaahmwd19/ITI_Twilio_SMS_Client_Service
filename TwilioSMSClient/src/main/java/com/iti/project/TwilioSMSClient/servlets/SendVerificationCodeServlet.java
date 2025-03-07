@@ -19,13 +19,13 @@ public class SendVerificationCodeServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         
         if (session == null) {
-            response.sendRedirect("/TwilioSMSClient/pages/login.html");
+            response.sendRedirect("/TwilioSMSClient/pages/login1.html");
             return;
         }
         
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            response.sendRedirect("/TwilioSMSClient/pages/login.html");
+            response.sendRedirect("/TwilioSMSClient/pages/login1.html");
             return;
         }
         

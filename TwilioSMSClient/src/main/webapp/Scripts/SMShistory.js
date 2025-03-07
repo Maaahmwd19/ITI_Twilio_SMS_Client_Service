@@ -1,66 +1,27 @@
-fetch("/TwilioSMSClient/SMSHistoryServlet")
-    .then(response => response.json())
-    .then(data => {
-        const tableBody = document.querySelector("#smsTable tbody");
-        tableBody.innerHTML = "";
-
-        console.log("Received SMS data:", data); // Debugging line
-
-        data.forEach(sms => {
-            console.log("Processing SMS:", sms); // Debugging line
-            
-            const row = document.createElement("tr");
-            row.dataset.smsId = sms.id;  // Ensure SMS ID is stored
-            row.innerHTML = `
-                <td>${sms.from || "N/A"}</td>  
-                <td>${sms.to|| "N/A"}</td>  
-                <td>${sms.body || "No body"}</td>
-                <td>${sms.date || "Unknown date"}</td>
-                <td class="actions">
-                    <button class="delete-btn" onclick="deleteSMS(this)">Delete</button>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
-
-        console.log("SMS data loaded successfully.");
-    })
-    .catch(error => console.error("Error fetching SMS data:", error));
-
 function deleteSMS(button) {
-    if (!confirm("Are you sure you want to delete this SMS?")) {
-        return;
-    }
+    if (!confirm("Are you sure you want to delete this SMS?")) return;
 
-    const row = button.closest("tr");
-    if (!row) {
-        console.error("Row not found!");
-        return;
-    }
+    // Get the SMS ID from the row's data attribute
+    const smsId = button.closest("tr").dataset.smsId;
+    console.log("Deleting SMS ID:", smsId);
 
-    const smsId = row.dataset.smsId;
-    if (!smsId) {
-        console.error("SMS ID is missing!");
-        return;
-    }
-
-    console.log(`Attempting to delete SMS with ID: ${smsId}`);
-
-    fetch(`/TwilioSMSClient/DeleteSMSServlet?smsId=${smsId}`, {
-        method: "DELETE",
+    fetch("/TwilioSMSClient/DeleteSMSServlet", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "id=" + encodeURIComponent(smsId),
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        console.log("Delete response:", data);
-        if (data.success) {
-            console.log("SMS deleted successfully.");
-            row.remove();
+        console.log("Server Response:", data);
+        if (data.includes("SMS Deleted Successfully")) {
+            button.closest("tr").remove(); // Remove the row from the table
         } else {
-            alert("Failed to delete SMS: " + data.error);
+            alert("Error: " + data);
         }
     })
-    .catch(error => console.error("Error deleting SMS:", error));
+    .catch(error => console.error("Error:", error));
 }
+
 
 
 function searchSMS() {
