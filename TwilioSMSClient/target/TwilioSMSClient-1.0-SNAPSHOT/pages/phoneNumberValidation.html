@@ -1,17 +1,15 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Enter Phone Number</title>
-        <link rel="icon" type="image/png" href="../images/message.png">
-
-        <link rel="stylesheet" href="../Styles/CustomerHome.css">
-        <link rel="stylesheet" href="../Styles/home.css">
-        <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
-
-
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Phone Number</title>
+    <link rel="icon" type="image/png" href="../images/message.png">
+    <link rel="stylesheet" href="../Styles/PhineValidation.css"> <!-- Make sure this CSS file includes the styles you provided -->
+</head>
 
 <body>
+    <!-- Navigation Header -->
     <header class="header">
         <nav>
             <ul>
@@ -24,15 +22,25 @@
         </nav>
     </header>
 
+    <!-- Background Shapes -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Form Container -->
     <div class="container">
-        <h2>Enter Your Phone Number</h2>
         <form action="/TwilioSMSClient/SendVerificationCodeServlet" method="post">
+            <h3>Enter Your Phone Number</h3>
+
             <label for="phoneNumber">Phone Number:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
-            <input type="submit" value="Send Code">
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+
+            <button type="submit">Send Code</button>
         </form>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
     </footer>

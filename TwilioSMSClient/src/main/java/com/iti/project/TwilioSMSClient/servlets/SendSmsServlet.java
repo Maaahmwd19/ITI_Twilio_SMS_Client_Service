@@ -19,6 +19,7 @@ import com.iti.project.TwilioSMSClient.model.User;
 @WebServlet(name = "SendSmsServlet", urlPatterns = {"/SendSmsServlet"})
 public class SendSmsServlet extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("user");
@@ -57,11 +58,11 @@ public class SendSmsServlet extends HttpServlet {
 
         try {
             SMSService.sendSMS(accountSid, authToken, from_number, to, body, userId);
-            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.jsp");
         } catch (ApiException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Failed to send SMS: " + e.getMessage());
-            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.jsp");
         }
     }
 }

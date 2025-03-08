@@ -17,7 +17,7 @@
                 <ul>
                     <li><a href="HomePage.html">Home</a></li>
                     <li><a href="SendSMS.html" class="active">Send Message</a></li>
-                    <li><a href="smsHistory.html">SMS History</a></li>
+                    <li><a href="smsHistory.jsp">SMS History</a></li>
                     <li><a href="/TwilioSMSClient/view-inbound-sms">Inbound Messages</a></li>
                     <li><a href="/TwilioSMSClient/ProfileServlet">Profile</a></li>
                     <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
@@ -31,33 +31,49 @@
         </div>
         <form action="/TwilioSMSClient/SendSmsServlet" method="post">
             <div id="errorMessage"></div>
-        <form action="<%= request.getContextPath() %>/UpdateProfileServlet" method="POST" id="profileForm">
-            <h3>Send SMS</h3>
-            <label class="lab" for="from">From:</label>
-            <input type="text" id="from" name="from_number" placeholder="Your Twilio Number" required>
+            <form action="/TwilioSMSClient/SendSmsServlet" method="POST">
+                <h3>Send SMS</h3>
+                <label class="lab" for="from">From:</label>
+                <input type="text" id="from" name="from_number" placeholder="Your Twilio Number" required>
 
-            <label class="lab" for="to">To:</label>
-            <input type="text" id="to" name="to_number" placeholder="Recipient Number" required>
+                <label class="lab" for="to">To:</label>
+                <input type="text" id="to" name="to_number" placeholder="Recipient Number" required>
 
-            <label class="lab" for="body">Message:</label>
-            <textarea id="body" name="body" placeholder="Your message..." required></textarea>
+                <label class="lab" for="body">Message:</label>
+                <textarea id="body" name="body" placeholder="Your message..." required></textarea>
 
-            <input type="submit" value="Send SMS">
-        </form>
+                <input type="submit" value="Send SMS">
+            </form>
 
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
-        </footer>
-        <script>
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.has("error")) {
-                document.getElementById("errorMessage").innerText = params.get("error");
-                document.getElementById("errorMessage").style.display = "block";
-            }
-        };
-    </script>
+            <!-- Footer -->
+            <footer class="footer">
+                <p style="color: white; opacity: 100%;">All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
+            </footer>
+            <script>
+                window.onload = function () {
+                    const params = new URLSearchParams(window.location.search);
+                    if (params.has("error")) {
+                        document.getElementById("errorMessage").innerText = params.get("error");
+                        document.getElementById("errorMessage").style.display = "block";
+                    }
+                };
+                document.addEventListener("DOMContentLoaded", function () {
+                    let input = document.getElementById("to");
+
+                    input.value = "+2";
+
+                    input.addEventListener("input", function () {
+                        if (!input.value.startsWith("+2")) {
+                            input.value = "+2";
+                        }
+                    });
+
+                    input.addEventListener("focus", function () {
+                        setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
+                    });
+                });
+
+            </script>
     </body>
 </html>
