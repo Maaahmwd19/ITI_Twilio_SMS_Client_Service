@@ -58,11 +58,11 @@ public class SendSmsServlet extends HttpServlet {
 
         try {
             SMSService.sendSMS(accountSid, authToken, from_number, to, body, userId);
-            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.jsp");
         } catch (ApiException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Failed to send SMS: " + e.getMessage());
-            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.html");
+            response.sendRedirect("/TwilioSMSClient/pages/smsHistory.jsp");
         }
     }
 }

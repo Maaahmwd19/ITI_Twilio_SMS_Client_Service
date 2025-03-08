@@ -43,6 +43,13 @@
 
         <div class="container">
             <h1>SMS History</h1>
+            <div class="search-section">
+                <input type="text" id="searchFrom" placeholder="Search by From">
+                <input type="text" id="searchTo" placeholder="Search by To">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+                <button class="filter-button" onclick="searchSMS()">Search</button>
+            </div>
             <div class="table-frame">
                 <table id="smsTable">
                     <thead>
