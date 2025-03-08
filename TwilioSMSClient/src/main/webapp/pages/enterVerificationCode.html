@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Enter Verification Code</title>
+        <link rel="icon" type="image/png" href="../images/message.png">
+
+        <link rel="stylesheet" href="../Styles/CustomerHome.css">
+        <link rel="stylesheet" href="../Styles/home.css">
+        <link rel="stylesheet" href="../Styles/headerAndFooterStyle.css">
+
+
+    </head>
+    
+
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="SendSMS.html">Send Message</a></li>
+                <li><a href="smsHistory.html">SMS History</a></li>
+                <li><a href="Settings.html">Settings</a></li>
+                <li><a href="/TwilioSMSClient/LogoutServlet">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Enter Verification Code</h2>
+        <form action="/TwilioSMSClient/verifyCode" method="post">
+            <label for="code">Verification Code:</label>
+            <input type="text" id="code" name="code" required><br><br>
+            <input type="submit" value="Verify">
+        </form>
+        <div id="error" style="color: red;">
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>All rights reserved to ITI 2024 Intake 45 Telecom Track</p>
+    </footer>
+</body>
+</html>

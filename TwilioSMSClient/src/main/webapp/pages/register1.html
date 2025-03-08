@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+            <link rel="icon" type="image/png" href="../images/message.png">
+    <link rel="icon" type="image/png" href="../images/message.png">
+
+        <link rel="stylesheet" type="text/css" href="../Styles/css/register.css"> <!-- Link to your CSS file -->
+    </head>
+    <body>
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+
+                    <!-- Image Section -->
+                    <div class="login100-pic">
+                        <img src="../images/1.png" alt="Sign Up Image"> <!-- Replace with your image -->
+                    </div>
+
+                    <!-- Sign-Up Form -->
+                    <form class="login100-form" action="/TwilioSMSClient/RegistrationServlet" method="post">
+                        <span class="login100-form-title">Registration</span>
+
+                        <div class="form-row">
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="username" placeholder="Enter your username" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="wrap-input100">
+                                <input class="input100" type="date" name="birthday" required>
+                            </div>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="job" placeholder="Enter your job title">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="wrap-input100">
+                                <input class="input100" type="tel" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="address" placeholder="Enter your address">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="wrap-input100">
+                                <input class="input100" type="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="twilio_sender_id" readonly placeholder="Enter your Twilio Sender ID">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="twilio_sid" placeholder="Enter your Twilio SID">
+                            </div>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="twilio_token" placeholder="Enter your Twilio Token">
+                            </div>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <input class="input100" type="password" name="password" placeholder="Enter your password" required>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">Register</button>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <p>Already have an account? <a href="login1.html" class="txt2">Sign In</a></p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!--    <script>
+                window.onload = function() {
+                    const params = new URLSearchParams(window.location.search);
+                    if (params.has("error")) {
+                        document.getElementById("errorMessage").innerText = params.get("error");
+                        document.getElementById("errorMessage").style.display = "block";
+                    }
+                };
+            </script>-->
+    </body>
+</html>

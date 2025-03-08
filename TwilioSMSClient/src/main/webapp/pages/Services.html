@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Twilio SMS Client</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        header, footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .services-container {
+            max-width: 900px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .service-box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 15px;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+        .service-box h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .service-box p {
+            font-size: 14px;
+            color: #666;
+        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Services</h1>
+    </header>
+    
+    <div class="services-container">
+        <div class="service-box">
+            <h3>Customer Management</h3>
+            <p>Admins can add, edit, delete, and view customer accounts.</p>
+        </div>
+        <div class="service-box">
+            <h3>SMS Sending</h3>
+            <p>Customers can send SMS messages using their Twilio account.</p>
+        </div>
+        <div class="service-box">
+            <h3>SMS History</h3>
+            <p>Customers can view, search, and delete their SMS history.</p>
+        </div>
+        <div class="service-box">
+            <h3>Statistics</h3>
+            <p>Admins can monitor SMS statistics for each customer.</p>
+        </div>
+        <div class="service-box">
+            <h3>Profile Management</h3>
+            <p>Customers can update their profile information.</p>
+        </div>
+        <div class="service-box">
+            <h3>Inbound SMS</h3>
+            <p>Receive and manage incoming SMS messages.</p>
+        </div>
+    </div>
+    
+    <a href="../index.html" class="btn-home">Go to Home</a>
+    
+    <footer>
+        <p>&copy; 2025 Twilio SMS Client. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
