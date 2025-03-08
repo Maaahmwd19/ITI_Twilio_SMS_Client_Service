@@ -4,58 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMS Service</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header, footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .box-container {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            max-width: 960px;
-        }
-        .box {
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            width: 30%;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .box h3 {
-            margin: 0 0 10px;
-            font-size: 1.2em;
-        }
-        .box p {
-            font-size: 0.9em;
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="Styles/index.css">
+
 </head>
 <body>
     <header>
@@ -67,18 +17,12 @@
                 <h3>Login</h3>
                 <p>Access your account</p>
             </div>
-            <div class="box" onclick="navigate('register')">
-                <h3>Register</h3>
-                <p>Create a new account</p>
-            </div>
-            <div class="box" onclick="navigate('services')">
-                <h3>Our Services</h3>
-                <p>Explore what we offer</p>
-            </div>
+
+
         </div>
     </main>
     <footer>
-        <p>&copy; 2023 SMS Service. All rights reserved.</p>
+        <p>&copy; 2025 SMS Service. All rights reserved to ITI Telecom intake 45    .</p>
     </footer>
     <script>
            function navigate(page) {
@@ -86,9 +30,7 @@
                 window.location.href = 'pages/login1.html';
             } else if (page === 'register') {
                 window.location.href = 'pages/register1.html';
-            } else if (page === 'services') {
-                window.location.href = 'pages/Services.html';
-            }
+            } 
         }
     </script>
 </body>
